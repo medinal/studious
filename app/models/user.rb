@@ -8,10 +8,10 @@ class User < ApplicationRecord
 
   def create_token
     begin
-     self.token = SecureRandom.hex[0,10].upcase
+     self.token = SecureRandom.hex[0,20].upcase
      rescue ActiveRecord::RecordNotUnique
        retry
     end
   end
-  
+
 end
