@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   extend FriendlyId
-  friendly_id :hash, use: :slugged
+  friendly_id :identifier, use: :slugged
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -14,9 +14,9 @@ class User < ApplicationRecord
 
   private
 
-  def create_token
+  def create_identifier
     begin
-     self.token = SecureRandom.hex[0,20].upcase
+     self.identifier = SecureRandom.hex[0,20].upcase
      rescue ActiveRecord::RecordNotUnique
        retry
     end
