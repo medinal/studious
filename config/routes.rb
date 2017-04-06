@@ -11,4 +11,9 @@ Rails.application.routes.draw do
     resources :project
   end
 
+  get "/student/dashboard", to: "users#index"
+  get "/student/profile", to: "profile#show", as: "profile"
+  get "/student/projects", to: "projects#index", as: "projects"
+  get "/student/projects/:id", to: "projects#show", as: "project"
+
 end
