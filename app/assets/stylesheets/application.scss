@@ -16,6 +16,11 @@
 
  */
 
+ body {
+   background-image: url("/chalkboard.jpg");
+   background-size: cover;
+ }
+
 .orbit-slide{
    width: 100vw;
  }
@@ -35,6 +40,13 @@
 
 .caption {
   width: 50vw;
+}
+
+.caption h2 {
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 4em;
+  font-weight: 600;
+  color: white;
 }
 
 .register-now {
@@ -83,4 +95,16 @@
 }
 .footer-links li {
   margin-top: .5em;
+}
+
+.flash {
+  position: fixed;
+  top: 2.5vh;
+  left: 35vw;
+  width: 30vw;
+  z-index: 100;
+  padding: 7px;
+  border-radius: .5rem;
+  background-color: rgba(0,0,0,.5);
+  color: white;
 }
