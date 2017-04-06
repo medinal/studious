@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   extend FriendlyId
   friendly_id :identifier, use: :slugged
 
