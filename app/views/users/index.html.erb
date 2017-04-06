@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="small-3 columns">
+    <h5><%= link_to "Dashboard", student_dashboard_path, method: "get" %></h5>
+    <h5><%= link_to "Profile", profile_path, method: "get" %></h5>
+    <h5><%= link_to "Projects", projects_path, method: "get" %></h5>
+    <h5>Share</h5>
+  </div>
+  <div class="small-9 columns">
+    <div class="profile-card">
+      <img src="/default-profile-picture.png">
+      <div class="card-section">
+        <h4><%= @user.name %></h4>
+        <h6><%= @user.created_at.strftime('%Y-%m-%d') %></h6>
+        <h6><%= @user.updated_at.strftime('%Y-%m-%d') %></h6>
+      </div>
+    </div>
+  </div>
+</div>

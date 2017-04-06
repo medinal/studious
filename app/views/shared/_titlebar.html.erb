@@ -15,7 +15,7 @@
         <li class="has-submenu">
           <a class="user-icon fi-torso"></a>
           <ul class="submenu menu vertical" data-submenu>
-            <li><%= link_to "Dashboard", edit_user_registration_path, method: "get" %></li>
+            <li><%= link_to "Dashboard", student_dashboard_path, method: "get" %></li>
             <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
             <hr>
             <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
