@@ -1,10 +1,27 @@
-<div class="title-bar">
-  <div class="title-bar-left">
-    <h1><span class="title-bar-title">Studious</span></h1>
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li><h1><span class="top-bar-title">Studious | <small>profiles reimagined</small></span></h1></li>
+    </ul>
   </div>
-  <div class="title-bar-right">
-    <%= link_to "Register", new_user_registration_path, class: "button", method: "get" %>
-    <%= link_to "Log In", new_user_session_path, class: "button", method: "get" %>
-    <%= link_to "Log Out", destroy_user_session_path, class: "button", method: "delete" %>
+  <div class="top-bar-right">
+    <% if !current_user %>
+      <ul class="menu">
+        <li><%= link_to "Register", new_user_registration_path, method: "get" %></li>
+        <li><%= link_to "Log In", new_user_session_path, method: "get" %></li>
+      </ul>
+    <% else %>
+      <ul class="menu" data-responsive-menu="medium-dropdown">
+        <li class="has-submenu">
+          <a class="user-icon fi-torso"></a>
+          <ul class="submenu menu vertical" data-submenu>
+            <li><%= link_to "Dashboard", student_path, method: "get" %></li>
+            <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
+            <hr>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
   </div>
 </div>

@@ -1,10 +1,6 @@
 <div class="top-bar">
-  <div class="top-bar-left"></div>
-  <div class="top-bar-right">
-    <h4>Be more than just a statistic.</h4>
-  </div>
+    <h4 class="float-center">Do your grades define you?</h4>
 </div>
-
 <div class="orbit splash-orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
   <ul class="orbit-container">
     <li class="is-active orbit-slide">
@@ -86,7 +82,10 @@
     </li>
   </ul>
 </div>
+<div class="top-bar">
+    <h4 class="float-center">Be more than just a statistic.</h4>
+</div>
 
 <div class="register-now display-flex">
-  <h3 class="align-middle text-center">Register here!</h3>
+      <h3 class="align-middle text-center"><%= link_to "Register here", new_user_registration_path, method: "get" %> or <%= link_to "Log In", new_user_session_path, method: "get" %></h3>
 </div>

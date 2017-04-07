@@ -10,8 +10,17 @@
     </div>
     <div class="small-12 medium-4 columns">
       <i class="fi-link"></i>
-      <h6>Register</h6>
-      <h6>Log-In</h6>
+      <% if !current_user %>
+        <h6>Register</h6>
+        <h6>Log-In</h6>
+      <% else %>
+        <h6><%= link_to "Dashboard", student_path, method: "get" %></h6>
+        <h6><%= link_to "Profile", student_profile_path, method: "get" %></h6>
+        <h6><%= link_to "Projects", student_projects_path, method: "get" %></h6>
+        <hr>
+        <h6><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></h6>
+        <h6><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></h6>
+      <% end %>
     </div>
   </div>
 </footer>

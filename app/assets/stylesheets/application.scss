@@ -17,8 +17,25 @@
  */
 
  body {
-   background-image: url("/chalkboard.jpg");
-   background-size: cover;
+ }
+
+ .top-bar, .footer {
+   border-top-color: #0D70C3;
+   border-top-style: solid;
+   border-top-width: 1px;
+   border-bottom-color: #0D70C3;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+ }
+
+#main-menu, .top-bar, .top-bar, .top-bar ul{
+  background-color: black;
+  color: white;
+}
+
+ .user-icon {
+   color: white;
+   font-size: 3em;
  }
 
 .orbit-slide{
@@ -30,6 +47,8 @@
 }
 
 .splash-orbit .orbit-container {
+  background-image: url("/chalkboard.jpg");
+  background-size: cover;
   height: auto !important;
 }
 
@@ -107,4 +126,8 @@
   border-radius: .5rem;
   background-color: rgba(0,0,0,.5);
   color: white;
+}
+
+.profile-card {
+  max-width: 150px;
 }
