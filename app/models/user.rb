@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   enum role: [:student, :processor, :admin, :superuser]
 
-  validates :name, :email, :password, presence: true
+  validates :name, :email, :password, :role, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
   def create_identifier
