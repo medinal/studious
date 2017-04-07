@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :users, only: [:index] do
-    resource :profile, except: [:index]
-    resources :project
+    resource :profile, only: [:index]
+    resources :project, only: [:index, :show]
   end
 
-  get "/student/dashboard", to: "users#index"
-  get "/student/profile", to: "profile#show", as: "profile"
-  get "/student/projects", to: "projects#index", as: "projects"
-  get "/student/projects/:id", to: "projects#show", as: "project"
+  resource :student, only: [:show] do
+    resource :profile
+    resources :project
+  end
 
 end

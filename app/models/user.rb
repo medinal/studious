@@ -6,6 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :profile
+  has_many :projects
+
   enum role: [:student, :processor, :admin, :superuser]
 
   validates :name, :email, :password, presence: true
