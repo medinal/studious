@@ -1,0 +1,11 @@
+<div class="card column column-block">
+  <div class="card-section">
+      <h3><%= project.title %></h3>
+      <h6>Completed:<%= project.date.strftime('%m/%d/%y') %></h6>
+      <hr>
+      <h4>Goals:</h4>
+      <blockquote><%= project.description %></blockquote>
+      <h4>Interests:</h4>
+      <blockquote><%= project.reflection %></blockquote>
+  </div>
+</div>

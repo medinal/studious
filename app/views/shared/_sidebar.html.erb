@@ -1,8 +1,18 @@
-<div class="sidebar show-for-medium medium-2 columns">
-  <div class="sidebar-links">
-    <h5 class="sidebar-link text-center"><%= link_to "Dashboard", student_path, method: "get" %></h5>
-    <h5 class="sidebar-link text-center"><%= link_to "Profile", student_profile_path, method: "get" %></h5>
-    <h5 class="sidebar-link text-center"><%= link_to "Projects", student_projects_path, method: "get" %></h5>
-    <h5 class="sidebar-link text-center"><%= link_to "Share", submit_path, method: "get" %></h5>
+<% if params[:user_id] %>
+  <div class="sidebar show-for-medium medium-2 columns">
+    <div class="sidebar-links">
+      <h5 class="sidebar-link text-center"><%= link_to "Dashboard", user_path(@user.identifier), method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Profile", user_profile_path(@user.identifier), method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Projects", user_projects_path(@user.identifier), method: "get" %></h5>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="sidebar show-for-medium medium-2 columns">
+    <div class="sidebar-links">
+      <h5 class="sidebar-link text-center"><%= link_to "Dashboard", student_path, method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Profile", student_profile_path, method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Projects", student_projects_path, method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Share", submit_path, method: "get" %></h5>
+    </div>
+  </div>
+<% end %>

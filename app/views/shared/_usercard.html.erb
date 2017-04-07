@@ -2,7 +2,7 @@
   <img src="/default-profile-picture.png">
   <div class="card-section">
     <h4 class="text-center"><strong><%= @user.name %></strong></h4>
-    <table class="stack unstriped">
+    <table class="stack unstriped show-for-large">
       <tbody>
         <% if @user.profile %>
         <tr>
@@ -16,7 +16,7 @@
         <% end %>
         <tr>
           <td><strong>Last Updated:</strong></td>
-          <td><%= @user.updated_at.strftime('%Y-%m-%d') %></td>
+          <td><%= @user.updated_at.strftime('%m/%d/%y') %></td>
         </tr>
         <tr>
           <td><strong>User Since:</strong></td>

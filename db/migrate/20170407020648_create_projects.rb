@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration[5.0]
       t.text :reflection
       t.date :date
       t.integer :status
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end
