@@ -1,31 +1,20 @@
-<div class="row">
-  <div class="small-3 columns">
-    <h5><%= link_to "Dashboard", student_path, method: "get" %></h5>
-    <h5><%= link_to "Profile", student_profile_path, method: "get" %></h5>
-    <h5><%= link_to "Projects", student_projects_path, method: "get" %></h5>
-    <h5>Share</h5>
-  </div>
-  <div class="small-9 columns">
+<div class="row align-stretch">
+  <%= render "shared/sidebar" %>
+  <div class="small-12 medium-10 columns">
     <div class="row">
-      <div class="profile-card small-6 medium-4 columns">
-        <img src="/default-profile-picture.png">
+      <div class="profilecard small-12 medium-9 columns">
         <div class="card-section">
-          <h4><%= @user.name %></h4>
-          <h6><%= @user.created_at.strftime('%Y-%m-%d') %></h6>
-          <h6><%= @user.updated_at.strftime('%Y-%m-%d') %></h6>
-        </div>
-      </div>
-      <div class="small-6 medium-4 columns">
         <% if !@user.profile %>
           <p>You haven't started your profile yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
+        <% else %>
+          <h2>Welcome!</h2>
+          <hr>
+          <p><%= @user.profile.about_me %>
         <% end %>
+        </div>
       </div>
-      <div class="quote-card small-6 medium-4 columns">
-        <blockquote>
-          Those people who think they know everything are a great annoyance to those of us who do.
-          <cite>Isaac Asimov</cite>
-        </blockquote>
-      </div>
+      <%= render "shared/usercard" %>
     </div>
+    <%= render "quotecard" %>
   </div>
 </div>

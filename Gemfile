@@ -49,7 +49,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'friendly_id', '~> 5.2'
 # admin portal
 gem 'rails_admin'
-
+# Use clipboard-rails for clipboard.js integration
+gem 'clipboard-rails'
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production
 
