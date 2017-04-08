@@ -1,2 +1,24 @@
 <div id="main" class="small-12 medium-10 columns">
-</div
+  <div class="row">
+
+    <div class="small-12 medium-9 columns">
+      <h1 class="text-center"><%= @portfolio.user.name %></h1>
+      <ul class="tabs small-12 columns" data-tabs id="example-tabs">
+        <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Profile</a></li>
+        <li class="tabs-title"><a href="#panel2">Projects</a></li>
+      </ul>
+      <div class="tabs-content" data-tabs-content="example-tabs">
+        <div class="tabs-panel is-active" id="panel1">
+          <%= render "shared/profilecard", profile: @portfolio.profile %>
+        </div>
+        <div class="tabs-panel" id="panel2">
+          <% @portfolio.projects.each do |project| %>
+          <%= render "shared/projectcard", project: project %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%= render "shared/usercard", user: @portfolio.user %>
+  </div>
+</div>

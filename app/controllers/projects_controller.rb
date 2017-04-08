@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   def index
     if params[:user_id]
-      @user = User.find_by identifier: params[:user_id]
+      @user = User.find(params[:id])
       if @user
         @projects = @user.projects
       else

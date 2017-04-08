@@ -2,7 +2,7 @@ class Portfolio < ApplicationRecord
 
   extend FriendlyId
   friendly_id :identifier, use: :slugged
-  
+
   belongs_to :user
   has_many :portfolioprojects
   has_many :projects, through: :portfolioprojects
@@ -14,7 +14,9 @@ class Portfolio < ApplicationRecord
     rescue ActiveRecord::RecordNotUnique
       retry
     end
-    self.save
+    self.save!
+    self.slug = nil
+    self.save!
   end
 
 end

@@ -13,6 +13,6 @@ Rails.application.routes.draw do
     resources :portfolios
   end
 
-  get "/student/submit", to: "students#submit", as: "submit"
+  get "student/portfolios/:id/submit", to: "portfolios#submit", as: "submit"
 
 end
