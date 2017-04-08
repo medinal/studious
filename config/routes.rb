@@ -5,14 +5,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'user/registrations'}
 
-  resources :users, only: [:show] do
-    resource :profile, only: [:show]
-    resources :projects, only: [:index, :show]
-  end
+  resources :portfolios, only: [:show]
 
   resource :student, only: [:show] do
     resource :profile
     resources :projects
+    resources :portfolios
   end
 
   get "/student/submit", to: "students#submit", as: "submit"
