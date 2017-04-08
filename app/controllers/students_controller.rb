@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
 
   def show
     @user = current_user
+    @quote = Quote.order("RANDOM()").first
   end
 
   def submit

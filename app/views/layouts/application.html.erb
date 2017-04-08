@@ -23,11 +23,14 @@
       </div>
     <% end %>
 
-    <div id="main-body" class="row align-stretch">
-      <%= render 'shared/sidebar' unless @disable_sidebar %>
+    <% if !@home %>
+      <div id="main-body" class="row align-stretch">
+      <%= render 'shared/sidebar' %>
+    <% end %>
       <%= yield %>
-    </div>
-
+    <% if !@home %>
+      </div>
+    <% end %>
     <%= render "shared/footer" %>
 
   </body>
