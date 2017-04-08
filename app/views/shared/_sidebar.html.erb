@@ -1,4 +1,4 @@
-<% if params[:user_id] %>
+<% if params[:user_id] || (params[:id] && params[:id].length == 20) %>
   <div class="sidebar show-for-medium medium-2 columns">
     <div class="sidebar-links">
       <h5 class="sidebar-link text-center"><%= link_to "Dashboard", user_path(@user.identifier), method: "get" %></h5>

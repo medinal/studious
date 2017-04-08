@@ -18,8 +18,11 @@
 
 #main-body {
   height: 600px;
-  overflow: scroll;
  }
+
+#main {
+  overflow: scroll;
+}
 
  .top-bar, .footer {
    border-top-color: #0D70C3;
