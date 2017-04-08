@@ -1,13 +1,18 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
+  before_action :set_portfolio, only: [:edit, :update, :destroy, :submit]
 
   # GET /portfolios
   def index
-    @portfolios = Portfolio.all
+    @portfolios = current_user.portfolios
   end
 
   # GET /portfolios/1
   def show
+    if params[:portfolio_id]
+      @portfolio = Portfolio.find_by identifier: params[:portfolio_id]
+    else
+      @portfolio = Portfolio.find(params[:id])
+    end
   end
 
   # GET /portfolios/new
@@ -22,7 +27,7 @@ class PortfoliosController < ApplicationController
   # POST /portfolios
   def create
     @portfolio = Portfolio.new(portfolio_params)
-
+    @portfolio.user_id = current_user.id
     if @portfolio.save
       redirect_to @portfolio, notice: 'Portfolio was successfully created.'
     else
@@ -45,6 +50,12 @@ class PortfoliosController < ApplicationController
     redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.'
   end
 
+  def submit
+    if !@portfolio.identifier
+      @portfolio.make_identifier
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portfolio
@@ -53,6 +64,6 @@ class PortfoliosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def portfolio_params
-      params.fetch(:portfolio, {})
+      params.require(:portfolio).permit(:user_id)
     end
 end

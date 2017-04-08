@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: 'user/registrations'}
 
-  resources :portfolios, only: [:show]
+  resources :portfolios, param: :portfolio_id, only: [:show]
 
   resource :student, only: [:show] do
     resource :profile
