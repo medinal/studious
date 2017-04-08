@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one :profile
   has_many :projects
+  has_many :portfolios
 
   enum role: [:student, :processor, :admin, :superuser]
 
