@@ -16,7 +16,8 @@
 
  */
 
- body {
+#main-body {
+  height: 600px;
  }
 
  .top-bar, .footer {
@@ -162,4 +163,9 @@
 
 #copy {
   font-size: 2em;
+}
+
+#submission-field {
+  display: flex;
+  align-items: center;
 }
