@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :images
   root to: "home#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -16,6 +15,8 @@ Rails.application.routes.draw do
     end
     resources :portfolios, param: :portfolio_id
   end
+
+  resource :processor, only: [:show]
 
   get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
 
