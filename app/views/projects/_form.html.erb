@@ -1,20 +1,12 @@
-<%= form_for @project, url: "/student/projects" do |f| %>
+<%= simple_form_for @project, url: "/student/projects" do |f| %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <%= f.label :reflection %>
-  <%= f.text_area :reflection %>
-
-  <%= f.label :date %>
-  <%= f.date_select :date %>
-
+  <%= f.input :title , label: "What would you like to call this accomplishment?"%>
+  <%= f.input :description, label: "Describe what you accomplished." %>
+  <%= f.input :reflection, label: "What would you do differently if you had the chance?" %>
+  <%= f.input :date, label: "When did you accomplish it?", html5: true %>
   <%= f.label :status %>
-  <%= select_tag(:status, options_for_select([['Draft',0],['Published',1], ['archived',2]])) %>
+  <%= select_tag(:status, options_for_select([['Draft',0],['Publish',1], ['archived',2]])) %>
 
-  <%= f.submit "Save Project" %>
+  <%= f.submit "Save Accomplishment" %>
 
 <% end %>

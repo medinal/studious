@@ -55,11 +55,7 @@ class PortfoliosController < ApplicationController
   private
 
     def set_portfolio
-      if params[:id]
-        @portfolio = Portfolio.find_by slug: params[:id]
-      elsif params[:portfolio_id]
-        @portfolio = Portfolio.find_by slug: params[:portfolio_id]
-      end
+      @portfolio = Portfolio.find_by slug: params[:portfolio_id]
     end
 
     # Only allow a trusted parameter "white list" through.

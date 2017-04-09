@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   resource :student, only: [:show] do
     resource :profile
     resources :projects
-    resources :portfolios
+    resources :portfolios, param: :portfolio_id
   end
 
-  get "student/portfolios/:id/submit", to: "portfolios#submit", as: "submit"
+  get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
 
 end
