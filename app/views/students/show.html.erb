@@ -1,17 +1,17 @@
 <div id="main" class="small-12 medium-10 columns">
   <div class="row">
-    <div class="profilecard small-12 medium-9 columns">
+    <div class="profile-card small-12 medium-9 columns">
+      <%= render "quotecard", quote: @quote %>
       <div class="card-section">
         <% if !@user.profile %>
           <p>You haven't started your profile yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
         <% else %>
           <h2>Welcome!</h2>
           <hr>
-          <p><%= @user.profile.about_me %>
+          <p><%= @user.profile.about_me %></p>
         <% end %>
       </div>
     </div>
-    <%= render "shared/usercard" %>
+    <%= render "shared/usercard", user: @user %>
   </div>
-  <%= render "quotecard" %>
 </div>

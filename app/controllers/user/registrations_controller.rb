@@ -1,6 +1,7 @@
 class User::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :home, except: [:edit]
 
   # GET /resource/sign_up
   # def new
@@ -46,6 +47,10 @@ class User::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
+
+  def home
+    @home = true
   end
 
   # The path used after sign up.

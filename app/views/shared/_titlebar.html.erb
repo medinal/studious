@@ -1,7 +1,7 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><h1><span class="top-bar-title">Studious | <small>profiles reimagined</small></span></h1></li>
+      <li><h1><span class="top-bar-title">Studious | <small>portfolios reimagined</small></span></h1></li>
     </ul>
   </div>
   <div class="top-bar-right">
@@ -13,12 +13,16 @@
     <% else %>
       <ul class="menu" data-responsive-menu="medium-dropdown">
         <li class="has-submenu">
-          <a class="user-icon fi-torso"></a>
+          <a><% if !current_user.profile.avatar.url.present? %>
+            <img id="icon" src="/default-profile-picture.png">
+          <% else %>
+            <%= image_tag("#{current_user.profile.avatar.url}", id: "icon") %>
+          <% end %></a>
           <ul class="submenu menu vertical" data-submenu>
             <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
             <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>
             <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
-            <li class="hide-for-medium"><%= link_to "Share", submit_path, method: "get" %></li>
+            <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
             <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
             <hr>
             <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>

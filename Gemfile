@@ -45,12 +45,20 @@ gem 'validates_timeliness', '~> 4.0'
 gem 'date_validator'
 # Use Carrierwave for pictures
 gem 'carrierwave', '~> 1.0'
+# Cloud hosting and serving of files/pictures
+gem 'cloudinary'
+# Use Figaro to keep secret keys
+gem 'figaro'
 # pretty urls
 gem 'friendly_id', '~> 5.2'
 # admin portal
 gem 'rails_admin'
 # Use clipboard-rails for clipboard.js integration
 gem 'clipboard-rails'
+# Use simple-forms for creating Simple-forms
+gem 'simple_form'
+# Use enum_help for enumerable types in forms
+gem 'enum_help'
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production
 

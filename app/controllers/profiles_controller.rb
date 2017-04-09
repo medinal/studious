@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :is_a_student, except: [:show]
+  before_action :is_a_student
 
   def show
     if params[:user_id]
@@ -26,8 +26,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    current_user.create_profile(profile_params)
-    redirect_to student_profile_path
+    @profile = Profile.new(profile_params)
+    @profile.user = current_user
+    if @profile.save
+      redirect_to student_profile_path, notice: 'Profile was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -35,9 +40,20 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    profile = current_user.profile
-    profile.update_attributes(profile_params)
-    redirect_to student_profile_path
+    @profile = current_user.profile
+    if @profile.update(profile_params)
+      redirect_to student_profile_path, notice: 'Profile was successfully updated.'
+    else
+      render :new
+    end
+  end
+
+  def image
+    if !current_user.profile
+      @profile = current_user.build_profile
+    else
+      @profile = current_user.profile
+    end
   end
 
   private

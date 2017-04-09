@@ -1,11 +1,13 @@
 class Project < ApplicationRecord
 
-  enum staus: [:draft, :published, :archived]
+  enum status: { "draft" => 0, "published" => 1, "archived" => 2 }
 
   belongs_to :user
+  has_many :portfolioprojects, dependent: :destroy
+  has_many :portfolios, through: :portfolioprojects
 
 
-  validates :title, :description, :reflection, :date, presence: true
+  validates :title, :description, :reflection, :date, :status, presence: true
   validates :title, length: {maximum: 75}
   validates :description, :reflection, length: {maximum: 1000}
   validates_datetime :date, date: true

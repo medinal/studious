@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :is_a_student, except: [:index, :show]
+  before_action :is_a_student, except: [:show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:user_id]
-      @user = User.find_by identifier: params[:user_id]
+      @user = User.find(params[:id])
       if @user
         @projects = @user.projects
       else
@@ -28,21 +28,25 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.create(project_params)
     @project.user = current_user
-    @project.save
-    redirect_to student_project_path(@project)
+    if @project.save
+      redirect_to student_project_path(@project), notice: 'Project was successfully created.'
+    else
+      render :new
+    end
   end
 
   def edit
     @project = Project.find(params[:id])
   end
 
-
   def update
     @project = Project.find(params[:id])
-    @project.update_attributes(project_params)
-    redirect_to student_project_path(@project)
+    if @project.update(project_params)
+      redirect_to student_project_path(@project), notice: 'Project was successfully updated.'
+    else
+      render :new
+    end
   end
-
 
   def destroy
     project = Project.find(params[:id])

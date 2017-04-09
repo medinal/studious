@@ -20,6 +20,10 @@
   height: 600px;
  }
 
+ #icon {
+   max-height: 60px;
+ }
+
 #main {
   overflow: scroll;
 }
@@ -133,7 +137,7 @@
   color: white;
 }
 
-.profile-card {
+.profile-card, .welcome-card{
   padding-top: 1em;
   padding-bottom: 1em;
 }
@@ -145,6 +149,10 @@
 
 .project-card {
   margin: .5em;
+}
+
+.quote-card {
+  border-radius: 1em;
 }
 
 .sidebar {
@@ -172,4 +180,8 @@
 #submission-field {
   display: flex;
   align-items: center;
+}
+
+.profile-card-image {
+  width: 100%;
 }

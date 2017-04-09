@@ -1,14 +1,35 @@
 <div id="main" class="small-12 medium-10 columns">
-  <% if !params[:user_id] %>
-    <%= button_to "New Accomplishments", new_student_project_path, method: "get", class: "button" %>
-  <% end %>
-  <div class="row small-up-1 medium-up-2">
-      <% if @projects.length == 0 %>
-        <p>You don't have any projects, yet. <%= link_to "Click here", new_student_project_path, method: "get" %> to begin.</p>
-      <% else %>
-        <% @projects.each do |project| %>
-          <%= render "shared/projectcard", project: project %>
-        <% end %>
+  <h1>Your Projects</h1>
+
+
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Created On</td>
+        <td>Last Updated</td>
+        <td>Status</td>
+        <td>View</td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.created_at.strftime('%m/%d/%y') %></td>
+        <td><%= project.updated_at.strftime('%m/%d/%y') %></td>
+        <td><%= project.status %></td>
+        <td><%= link_to "Details", student_project_path(project), method: "get", class: "fi-eye" %></td>
+        <td><%= link_to "Edit", edit_student_project_path(project), method: "get", class: "fi-pencil" %></td>
+        <td><%= link_to "Delete", student_project_path(project), method: "delete", class: "fi-trash" %></td>
+      </tr>
       <% end %>
-  </div>
+      <tr>
+        <td colspan="7" class="text-center"><%= link_to 'New Project', new_student_project_path, method: "get", class: "button expanded"%></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
