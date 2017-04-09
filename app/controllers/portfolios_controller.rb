@@ -60,7 +60,7 @@ class PortfoliosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def portfolio_params
-      params.require(:portfolio).permit(:title, :project_ids => [])
+      params.require(:portfolio).permit(:title, :welcome_message, :project_ids => [])
     end
 
 end

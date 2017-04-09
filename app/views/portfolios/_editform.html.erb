@@ -1,6 +1,7 @@
 <%= simple_form_for @portfolio, url: "/student/portfolios/#{@portfolio.slug}" do |f| %>
 <div class="form-inputs">
   <%= f.input :title %>
+  <%= f.input :welcome_message %>
   <% if current_user.projects.length > 0 %>
     <%= f.association :projects, collection: current_user.projects, :as => :check_boxes %>
   <% else %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409043425) do
+ActiveRecord::Schema.define(version: 20170409180535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,17 +36,17 @@ ActiveRecord::Schema.define(version: 20170409043425) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "identifier"
     t.string   "slug"
     t.string   "title"
+    t.text     "welcome_message"
     t.index ["slug"], name: "index_portfolios_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.text     "about_me"
     t.string   "zip"
     t.text     "bio"
     t.text     "goals"

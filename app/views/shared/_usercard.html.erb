@@ -1,5 +1,5 @@
 <div class="profile-card show-for-medium medium-3 columns">
-  <% if !user.profile.avatar.url.present? %>
+  <% if !user.profile || !user.profile.avatar %>
     <img class="profile-card-image" src="/default-profile-picture.png">
   <% else %>
     <%= cl_image_tag(user.profile.avatar, :width=>400, :height=>400, :gravity => :face, :crop=>"lfill") %>

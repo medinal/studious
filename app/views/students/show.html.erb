@@ -1,19 +1,38 @@
 <div id="main" class="small-12 medium-10 columns">
   <div class="row">
     <div class="profile-card small-12 medium-9 columns">
-      <%= render "quotecard", quote: @quote %>
       <div class="card-section">
-        <% if !@user.profile %>
-          <p>You haven't started your profile yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
-        <% else %>
-          <h2>Welcome!
-            <% if @user == current_user %>
-              <%= link_to "", edit_student_profile_path, method: "get", class: "float-right fi-pencil" %>
-            <% end %>
-          </h2>
+          <h2>Welcome!</h2>
           <hr>
-          <p><%= @user.profile.about_me %></p>
-        <% end %>
+          <%= render "quotecard", quote: @quote %>
+          <br>
+          <br>
+          <% if !@user.profile %>
+          <div class="row">
+            <div class="card small-12 medium-4 columns">
+              <i class="dashboard-card fi-heart"></i>
+              <div class="card-section">
+                <p class="text-center">You haven't started your profile, yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
+              </div>
+            </div>
+            <% end %>
+            <% if @user.projects.length == 0 %>
+            <div class="card small-12 medium-4 columns">
+              <i class="dashboard-card fi-star"></i>
+              <div class="card-section">
+                <p class="text-center">You haven't created any projects, yet. <%= link_to "Click here", new_student_project_path, method: "get" %> to begin.</p>
+              </div>
+            </div>
+            <% end %>
+            <% if @user.portfolios.length == 0 %>
+            <div class="card small-12 medium-4 columns">
+              <i class="dashboard-card fi-folder-add"></i>
+              <div class="card-section">
+                <p class="text-center">You haven't created any portfolios, yet. <%= link_to "Click here", new_student_portfolio_path, method: "get" %> to begin.</p>
+              </div>
+            </div>
+            <% end %>
+          </div>
       </div>
     </div>
     <%= render "shared/usercard", user: @user %>
