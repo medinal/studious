@@ -1,5 +1,10 @@
 <%= simple_form_for @portfolio, url: "/student/portfolios" do |f| %>
+<div class="form-inputs">
   <%= f.input :title %>
   <%= f.association :projects, :as => :check_boxes %>
-  <%= f.submit "Save Portfolio" %>
+</div>
+
+<div class="form-actions">
+  <%= f.button :submit, "Save Portfolio" %>
+</div>
 <% end %>

@@ -1,12 +1,13 @@
 <%= simple_form_for @project, url: "/student/projects" do |f| %>
-
+<div class="form-inputs">
   <%= f.input :title , label: "What would you like to call this accomplishment?"%>
   <%= f.input :description, label: "Describe what you accomplished." %>
   <%= f.input :reflection, label: "What would you do differently if you had the chance?" %>
   <%= f.input :date, label: "When did you accomplish it?", html5: true %>
-  <%= f.label :status %>
-  <%= select_tag(:status, options_for_select([['Draft',0],['Publish',1], ['archived',2]])) %>
+  <%= f.input :status %>
+</div>
 
-  <%= f.submit "Save Accomplishment" %>
-
+<div class="form-actions">
+  <%= f.button :submit, "project" %>
+</div>
 <% end %>
