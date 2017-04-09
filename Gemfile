@@ -45,6 +45,10 @@ gem 'validates_timeliness', '~> 4.0'
 gem 'date_validator'
 # Use Carrierwave for pictures
 gem 'carrierwave', '~> 1.0'
+# Cloud hosting and serving of files/pictures
+gem 'cloudinary'
+# Use Figaro to keep secret keys
+gem 'figaro'
 # pretty urls
 gem 'friendly_id', '~> 5.2'
 # admin portal
