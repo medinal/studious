@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
+  before_action :is_a_user
 
   private
 
@@ -12,6 +13,12 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     student_path
+  end
+
+  def is_a_user
+    if !current_user
+      @home = true
+    end
   end
 
 end
