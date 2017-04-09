@@ -13,7 +13,7 @@
     <% else %>
       <ul class="menu" data-responsive-menu="medium-dropdown">
         <li class="has-submenu">
-          <a><% if !current_user.profile || !user.profile.avatar %>
+          <a><% if !current_user.profile || !current_user.profile.avatar %>
             <img id="icon" src="/default-profile-picture.png">
           <% else %>
             <%= cl_image_tag(current_user.profile.avatar, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb") %>

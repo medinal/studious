@@ -1,14 +1,14 @@
 <div id="main" class="small-12 medium-10 columns">
   <div class="row">
     <div class="profile-card small-12 medium-9 columns">
-      <div class="card-section">
+      <div class="small-12 card-section">
           <h2>Welcome!</h2>
           <hr>
           <%= render "quotecard", quote: @quote %>
           <br>
           <br>
-          <% if !@user.profile %>
           <div class="row">
+            <% if !@user.profile %>
             <div class="card small-12 medium-4 columns">
               <i class="dashboard-card fi-heart"></i>
               <div class="card-section">
