@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :images
   root to: "home#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -9,11 +10,13 @@ Rails.application.routes.draw do
 
   resource :student, only: [:show] do
     resource :profile
-    resources :projects
+    resource :image
+    resources :projects do
+      resources :images, except: [:index, :show]
+    end
     resources :portfolios, param: :portfolio_id
   end
 
   get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
-  get "student/profiles/image", to: "profiles#image", as: "profile_image"
 
 end

@@ -1,11 +1,13 @@
 <div class="profile-card show-for-medium medium-3 columns">
-  <% if !user.profile.avatar.url.present? %>
+  <% if !user.image %>
     <img class="profile-card-image" src="/default-profile-picture.png">
   <% else %>
-    <%= cl_image_tag(user.profile.avatar, :width=>400, :height=>400, :gravity => :face, :crop=>"lfill") %>
+    <%= cl_image_tag(user.image.avatar, :width=>400, :height=>400, :gravity => :face, :crop=>"lfill") %>
   <% end %>
-  <% if user == current_user %>
-    <%= button_to 'Edit Image', profile_image_path, method: "get", class: "button expanded"%>
+  <% if user == current_user && user.image %>
+    <%= button_to 'Edit Image', edit_student_image_path, method: "get", class: "button expanded"%>
+  <% elsif user == current_user %>
+    <%= button_to 'Add Image', new_student_image_path, method: "get", class: "button expanded"%>
   <% end %>
   <div class="card-section">
     <h4 class="text-center"><strong><%= user.name %></strong></h4>

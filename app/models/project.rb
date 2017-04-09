@@ -5,6 +5,8 @@ class Project < ApplicationRecord
   belongs_to :user
   has_many :portfolioprojects, dependent: :destroy
   has_many :portfolios, through: :portfolioprojects
+  has_many :images, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :images
 
 
   validates :title, :description, :reflection, :date, :status, presence: true

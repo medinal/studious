@@ -40,7 +40,6 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user.profile
     if @profile.update(profile_params)
       redirect_to student_profile_path, notice: 'Profile was successfully updated.'
     else
@@ -48,18 +47,10 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def image
-    if !current_user.profile
-      @profile = current_user.build_profile
-    else
-      @profile = current_user.profile
-    end
-  end
-
   private
 
   def profile_params
-    params.require(:profile).permit(:about_me, :zip, :bio, :goals, :interests, :born_on, :avatar)
+    params.require(:profile).permit(:zip, :bio, :goals, :interests, :born_on)
   end
 
 end

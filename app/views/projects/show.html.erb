@@ -1,2 +1,11 @@
 <div id="main" class="small-12 medium-10 columns">
-</div
+  <div class="row">
+    <div class="small-12 columns">
+      <% if !@project %>
+      <p>You don't have any projects yet. <%= link_to "Click here", new_student_project_path, method: "get" %> to begin.</p>
+      <% else %>
+        <%= render "shared/projectcard", project: @project %>
+      <% end %>
+    </div>
+  </div>
+</div>

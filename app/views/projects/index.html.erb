@@ -2,16 +2,16 @@
   <h1>Your Projects</h1>
 
 
-  <table>
+  <table class="text-center">
     <thead>
       <tr>
-        <td>Name</td>
-        <td>Created On</td>
-        <td>Last Updated</td>
-        <td>Status</td>
-        <td>View</td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <td class="text-center">Name</td>
+        <td class="text-center">Created On</td>
+        <td class="text-center">Last Updated</td>
+        <td class="text-center">Status</td>
+        <td class="text-center">View</td>
+        <td class="text-center">Edit</td>
+        <td class="text-center">Delete</td>
       </tr>
     </thead>
 
@@ -22,9 +22,9 @@
         <td><%= project.created_at.strftime('%m/%d/%y') %></td>
         <td><%= project.updated_at.strftime('%m/%d/%y') %></td>
         <td><%= project.status %></td>
-        <td><%= link_to "Details", student_project_path(project), method: "get", class: "fi-eye" %></td>
-        <td><%= link_to "Edit", edit_student_project_path(project), method: "get", class: "fi-pencil" %></td>
-        <td><%= link_to "Delete", student_project_path(project), method: "delete", class: "fi-trash" %></td>
+        <td><%= link_to "", student_project_path(project), method: "get", class: "fi-eye" %></td>
+        <td><%= link_to "", edit_student_project_path(project), method: "get", class: "fi-pencil" %></td>
+        <td><%= link_to "", student_project_path(project), method: "delete", class: "fi-trash" %></td>
       </tr>
       <% end %>
       <tr>

@@ -2,7 +2,12 @@
   <div class="row">
 
     <div class="small-12 medium-9 columns">
-      <h1 class="text-center"><%= @portfolio.user.name %></h1>
+      <h1 class="text-center">
+        <%= @portfolio.user.name %>
+        <% if @portfolio.user == current_user %>
+          <%= link_to "", edit_student_portfolio_path(@portfolio), method: "get", class: "float-right fi-pencil" %>
+        <% end %>
+      </h1>
       <ul class="tabs small-12 columns" data-tabs id="example-tabs">
         <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Welcome</a></li>
         <li class="tabs-title"><a href="#panel2" aria-selected="true">Profile</a></li>

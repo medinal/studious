@@ -4,6 +4,10 @@
   <%= f.input :description, label: "Describe what you accomplished." %>
   <%= f.input :reflection, label: "What would you do differently if you had the chance?" %>
   <%= f.input :date, label: "When did you accomplish it?", html5: true %>
+  <%= f.fields_for :images do |image_fields| %>
+    <%= image_fields.label :add_image %>
+    <%= image_fields.file_field :avatar %>
+  <% end %>
   <%= f.input :status %>
 </div>
 
