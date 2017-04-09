@@ -31,7 +31,6 @@ class ProfilesController < ApplicationController
     if @profile.save
       redirect_to student_profile_path, notice: 'Profile was successfully created.'
     else
-      p @profile.errors
       render :new
     end
   end
@@ -48,18 +47,10 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def image
-    if !current_user.profile
-      @profile = Profile.new
-    else
-      @profile = current_user.profile
-    end
-  end
-
   private
 
   def profile_params
-    params.require(:profile).permit(:zip, :bio, :goals, :interests, :born_on, :avatar)
+    params.require(:profile).permit(:zip, :bio, :goals, :interests, :born_on)
   end
 
 end

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :portfolios, dependent: :destroy
+  has_one :image, as: :imageable, dependent: :destroy
 
   enum role: [:student, :processor, :admin, :superuser]
 

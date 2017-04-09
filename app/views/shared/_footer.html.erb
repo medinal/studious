@@ -15,7 +15,11 @@
         <h6><%= link_to "Log In", new_user_session_path, method: "get" %></h6>
       <% else %>
         <h6><%= link_to "Dashboard", student_path, method: "get" %></h6>
-        <h6><%= link_to "Profile", student_profile_path, method: "get" %></h6>
+        <% if current_user.profile %>
+          <h6><%= link_to "Profile", student_profile_path, method: "get" %></h6>
+        <% else %>
+          <h6><%= link_to "Profile", new_student_profile_path, method: "get" %></h6>
+        <% end %>
         <h6><%= link_to "Projects", student_projects_path, method: "get" %></h6>
         <h6><%= link_to "Portfolios", student_portfolios_path, method: "get" %></h6>
         <hr>
