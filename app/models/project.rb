@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   enum staus: [:draft, :published, :archived]
 
   belongs_to :user
-  has_many :portfolioprojects
+  has_many :portfolioprojects, dependent: :destroy
   has_many :portfolios, through: :portfolioprojects
 
 

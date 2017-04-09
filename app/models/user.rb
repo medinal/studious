@@ -3,9 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :profile
-  has_many :projects
-  has_many :portfolios
+  has_one :profile, dependent: :destroy
+  has_many :projects, dependent: :destroy
+  has_many :portfolios, dependent: :destroy
 
   enum role: [:student, :processor, :admin, :superuser]
 

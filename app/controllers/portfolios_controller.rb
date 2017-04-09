@@ -15,6 +15,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
+    @portfolio.portfolioprojects.build
   end
 
   # GET /portfolios/1/edit
@@ -48,7 +49,7 @@ class PortfoliosController < ApplicationController
   # DELETE /portfolios/1
   def destroy
     @portfolio.destroy
-    redirect_to portfolios_url, notice: 'Portfolio was successfully destroyed.'
+    redirect_to student_portfolios_path, notice: 'Portfolio was successfully destroyed.'
   end
 
   private
@@ -63,6 +64,7 @@ class PortfoliosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def portfolio_params
-      params.require(:portfolio).permit(:user_id)
+      params.require(:portfolio).permit(:title, :project_ids => [])
     end
+
 end

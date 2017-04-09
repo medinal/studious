@@ -51,6 +51,8 @@ gem 'friendly_id', '~> 5.2'
 gem 'rails_admin'
 # Use clipboard-rails for clipboard.js integration
 gem 'clipboard-rails'
+# Simple-forms for creating Simple-forms
+gem 'simple_form'
 # For use when deploying to heroku
 gem 'rails_12factor', group: :production
 

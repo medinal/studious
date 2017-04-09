@@ -4,9 +4,11 @@ class Portfolio < ApplicationRecord
   friendly_id :identifier, use: :slugged
 
   belongs_to :user
-  has_many :portfolioprojects
+  has_many :portfolioprojects, dependent: :destroy
   has_many :projects, through: :portfolioprojects
   has_one :profile, through: :user
+
+  accepts_nested_attributes_for :portfolioprojects
 
   def make_identifier
     begin
