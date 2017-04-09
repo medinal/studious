@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   end
 
   get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
-  get "student/profiles/image", to: "profiles#image", as: "profile_image"
+  get "student/profile/image", to: "profiles#image", as: "profile_image"
 
 end

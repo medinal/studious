@@ -4,7 +4,6 @@ class Profile < ApplicationRecord
 
   belongs_to :user
 
-  validates :about_me, length: {maximum: 255}
   validates :bio, :goals, :interests, length: {maximum: 700}
   validates_datetime :born_on, date: true
   validates :born_on, date: { before: DateTime.now }

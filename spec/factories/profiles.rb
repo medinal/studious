@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :profile do
-    about_me "MyText"
     zip "MyString"
     bio "MyText"
     goals "MyText"

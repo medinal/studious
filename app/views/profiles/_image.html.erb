@@ -3,12 +3,12 @@
 <%= simple_form_for @profile, url: "/student/profile" do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :avatar, :label => 'Your image please' %>
+    <%= f.input :avatar, label: "Set your profile picture." %>
   </div>
 
 
   <div class="form-actions">
-    <%= f.button :submit, "Update Picture" %>
+    <%= f.button :submit, "Set Picture" %>
   </div>
 
 <% end %>
