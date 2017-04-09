@@ -20,6 +20,10 @@
   height: 600px;
  }
 
+ #icon {
+   max-height: 60px;
+ }
+
 #main {
   overflow: scroll;
 }
@@ -149,7 +153,6 @@
 
 .quote-card {
   border-radius: 1em;
-  background-color: lightgrey;
 }
 
 .sidebar {
@@ -177,4 +180,8 @@
 #submission-field {
   display: flex;
   align-items: center;
+}
+
+.profile-card-image {
+  width: 100%;
 }

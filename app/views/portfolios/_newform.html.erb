@@ -1,7 +1,11 @@
 <%= simple_form_for @portfolio, url: "/student/portfolios" do |f| %>
 <div class="form-inputs">
   <%= f.input :title %>
-  <%= f.association :projects, :as => :check_boxes %>
+  <% if current_user.projects.length > 0 %>
+    <%= f.association :projects, collection: current_user.projects, :as => :check_boxes %>
+  <% else %>
+    <p>You should probably <%= link_to "make some projects", new_student_project_path %> before you share your profile with people.</p>
+  <% end %>
 </div>
 
 <div class="form-actions">

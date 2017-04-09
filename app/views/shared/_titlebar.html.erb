@@ -13,7 +13,11 @@
     <% else %>
       <ul class="menu" data-responsive-menu="medium-dropdown">
         <li class="has-submenu">
-          <a class="user-icon fi-torso"></a>
+          <a><% if !current_user.profile.avatar.url.present? %>
+            <img id="icon" src="/default-profile-picture.png">
+          <% else %>
+            <%= image_tag("#{current_user.profile.avatar.url}", id: "icon") %>
+          <% end %></a>
           <ul class="submenu menu vertical" data-submenu>
             <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
             <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>

@@ -1,5 +1,12 @@
 <div class="profile-card show-for-medium medium-3 columns">
-  <img src="/default-profile-picture.png">
+  <% if !user.profile.avatar.url.present? %>
+    <img class="profile-card-image" src="/default-profile-picture.png">
+  <% else %>
+    <%= image_tag("#{user.profile.avatar.url}") %>
+  <% end %>
+  <% if user == current_user %>
+    <%= button_to 'Edit Image', profile_image_path, method: "get", class: "button expanded"%>
+  <% end %>
   <div class="card-section">
     <h4 class="text-center"><strong><%= user.name %></strong></h4>
     <table class="stack unstriped show-for-large">

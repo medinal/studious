@@ -40,11 +40,19 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    profile = current_user.profile
+    @profile = current_user.profile
     if @profile.update(profile_params)
       redirect_to student_profile_path, notice: 'Profile was successfully updated.'
     else
       render :new
+    end
+  end
+
+  def image
+    if !current_user.profile
+      @profile = current_user.build_profile
+    else
+      @profile = current_user.profile
     end
   end
 
