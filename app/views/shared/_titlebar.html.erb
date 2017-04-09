@@ -16,13 +16,13 @@
           <a><% if !current_user.profile.avatar.url.present? %>
             <img id="icon" src="/default-profile-picture.png">
           <% else %>
-            <%= image_tag("#{current_user.profile.avatar.url}", id: "icon") %>
+            <%= cl_image_tag(current_user.profile.avatar, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb") %>
           <% end %></a>
           <ul class="submenu menu vertical" data-submenu>
             <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
             <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>
             <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
-            <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
+            <li class="hide-for-medium"><%= link_to "Portfolios", student_portfolios_path, method: "get" %></li>
             <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
             <hr>
             <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>

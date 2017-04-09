@@ -1,6 +1,11 @@
 <div class="profilecard">
   <div class="card-section">
-      <h2>About Me</h2>
+      <h2>
+        About Me
+        <% if profile.user == current_user %>
+          <%= link_to "", edit_student_profile_path, method: "get", class: "float-right fi-pencil" %>
+        <% end %>
+      </h2>
       <hr>
       <h3>Bio:</h3>
       <blockquote><%= profile.bio %></blockquote>

@@ -2,7 +2,7 @@
   <% if !user.profile.avatar.url.present? %>
     <img class="profile-card-image" src="/default-profile-picture.png">
   <% else %>
-    <%= image_tag("#{user.profile.avatar.url}") %>
+    <%= cl_image_tag(user.profile.avatar, :width=>400, :height=>400, :gravity => :face, :crop=>"lfill") %>
   <% end %>
   <% if user == current_user %>
     <%= button_to 'Edit Image', profile_image_path, method: "get", class: "button expanded"%>

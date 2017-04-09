@@ -1,6 +1,11 @@
 <div class="card column column-block">
   <div class="card-section">
-      <h3><%= project.title %></h3>
+      <h3>
+        <%= project.title %>
+        <% if project.user == current_user %>
+          <%= link_to "", edit_student_project_path(project), method: "get", class: "float-right fi-pencil" %>
+        <% end %>
+      </h3>
       <h6>Completed:<%= project.date.strftime('%m/%d/%y') %></h6>
       <hr>
       <h4>Description:</h4>

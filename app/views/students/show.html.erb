@@ -6,7 +6,11 @@
         <% if !@user.profile %>
           <p>You haven't started your profile yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
         <% else %>
-          <h2>Welcome!</h2>
+          <h2>Welcome!
+            <% if @user == current_user %>
+              <%= link_to "", edit_student_profile_path, method: "get", class: "float-right fi-pencil" %>
+            <% end %>
+          </h2>
           <hr>
           <p><%= @user.profile.about_me %></p>
         <% end %>
