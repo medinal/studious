@@ -1,0 +1,28 @@
+<div class="profile-card show-for-medium medium-3 columns">
+  <img src="/default-profile-picture.png">
+  <div class="card-section">
+    <h4 class="text-center"><strong><%= @user.name %></strong></h4>
+    <table class="stack unstriped show-for-large">
+      <tbody>
+        <% if @user.profile %>
+        <tr>
+          <td><strong>Age:</strong></td>
+          <td><%= @user.profile.age %></td>
+        </tr>
+        <tr>
+          <td><strong>City:</strong></td>
+          <td><%= ZipCodes.identify(@user.profile.zip)[:city] %></td>
+        </tr>
+        <% end %>
+        <tr>
+          <td><strong>Last Updated:</strong></td>
+          <td><%= @user.updated_at.strftime('%m/%d/%y') %></td>
+        </tr>
+        <tr>
+          <td><strong>User Since:</strong></td>
+          <td><%= @user.created_at.strftime('%Y-%m-%d') %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

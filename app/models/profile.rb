@@ -4,7 +4,7 @@ class Profile < ApplicationRecord
 
   belongs_to :user
 
-  validates :about_me, :zipcode, :bio, :goals, :interests, :born_on, presence: true
+  validates :about_me, :zip, :bio, :goals, :interests, :born_on, presence: true
   validates :about_me, length: {maximum: 255}
   validates :bio, :goals, :interests, length: {maximum: 700}
   validates_datetime :born_on, date: true

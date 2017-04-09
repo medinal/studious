@@ -1,1 +1,23 @@
+<%= form_for @profile, url: "/student/profile" do |f| %>
 
+  <%= f.label :zip_code %>
+  <%= f.text_field :zip %>
+
+  <%= f.label :Birthday %>
+  <%= f.date_select :born_on %>
+
+  <%= f.label :welcome_message %>
+  <%= f.text_field :about_me %>
+
+  <%= f.label :bio %>
+  <%= f.text_area :bio %>
+
+  <%= f.label :goals %>
+  <%= f.text_area :goals %>
+
+  <%= f.label :interests %>
+  <%= f.text_area :interests %>
+
+  <%= f.submit "Save Profile" %>
+
+<% end %>

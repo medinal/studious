@@ -16,8 +16,13 @@
 
  */
 
- body {
+#main-body {
+  height: 600px;
  }
+
+#main {
+  overflow: scroll;
+}
 
  .top-bar, .footer {
    border-top-color: #0D70C3;
@@ -129,5 +134,42 @@
 }
 
 .profile-card {
-  max-width: 150px;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.about-me-card {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.project-card {
+  margin: .5em;
+}
+
+.sidebar {
+  background-color: black;
+  text-align: center;
+  color: #fff;
+  border-color: 1px 1px 1px 0px solid #0D70C3;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-links {
+  width: 100%;
+}
+
+.sidebar-link {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+#copy {
+  font-size: 2em;
+}
+
+#submission-field {
+  display: flex;
+  align-items: center;
 }

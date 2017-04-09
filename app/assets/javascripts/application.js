@@ -15,15 +15,18 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require clipboard
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+$(document).ready(function () {
 
-$(document).on('turbolinks:load', function(){
+  $(function(){ $(document).foundation(); });
 
   // flash messages disappear after 2 seconds.
    setTimeout(function(){
      $('#flash').fadeOut(1000);
    }, 2000);
+
+   var clipboard = new Clipboard('.clipboard-btn');
 
 });

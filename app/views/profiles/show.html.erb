@@ -1,0 +1,12 @@
+<div id="main" class="small-12 medium-10 columns">
+  <div class="row">
+    <div class="small-12 medium-9 columns">
+      <% if !@profile %>
+      <p>You haven't started your profile yet. <%= link_to "Click here", new_student_profile_path, method: "get" %> to begin.</p>
+      <% else %>
+        <%= render "shared/profilecard" %>
+      <% end %>
+    </div>
+    <%= render "shared/usercard" %>
+  </div>
+</div>

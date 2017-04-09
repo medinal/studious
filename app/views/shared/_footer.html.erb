@@ -11,8 +11,8 @@
     <div class="small-12 medium-4 columns">
       <i class="fi-link"></i>
       <% if !current_user %>
-        <h6>Register</h6>
-        <h6>Log-In</h6>
+        <h6><%= link_to "Register", new_user_registration_path, method: "get" %></h6>
+        <h6><%= link_to "Log In", new_user_session_path, method: "get" %></h6>
       <% else %>
         <h6><%= link_to "Dashboard", student_path, method: "get" %></h6>
         <h6><%= link_to "Profile", student_profile_path, method: "get" %></h6>

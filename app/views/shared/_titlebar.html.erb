@@ -15,7 +15,10 @@
         <li class="has-submenu">
           <a class="user-icon fi-torso"></a>
           <ul class="submenu menu vertical" data-submenu>
-            <li><%= link_to "Dashboard", student_path, method: "get" %></li>
+            <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
+            <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>
+            <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
+            <li class="hide-for-medium"><%= link_to "Share", submit_path, method: "get" %></li>
             <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
             <hr>
             <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>

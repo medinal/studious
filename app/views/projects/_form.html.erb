@@ -1,0 +1,20 @@
+<%= form_for @project, url: "/student/projects" do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :reflection %>
+  <%= f.text_area :reflection %>
+
+  <%= f.label :date %>
+  <%= f.date_select :date %>
+
+  <%= f.label :status %>
+  <%= select_tag(:status, options_for_select([['Draft',0],['Published',1], ['archived',2]])) %>
+
+  <%= f.submit "Save Project" %>
+
+<% end %>

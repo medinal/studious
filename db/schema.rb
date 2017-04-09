@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20170407020648) do
     t.text     "reflection"
     t.date     "date"
     t.integer  "status"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,4 +79,5 @@ ActiveRecord::Schema.define(version: 20170407020648) do
   end
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "projects", "users"
 end
