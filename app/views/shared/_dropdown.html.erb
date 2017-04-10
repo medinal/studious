@@ -1,0 +1,22 @@
+<% if current_user.student? %>
+  <ul class="submenu menu vertical" data-submenu>
+    <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
+    <% if current_user.profile %>
+      <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>
+    <% else %>
+      <li class="hide-for-medium"><%= link_to "Profile", new_student_profile_path, method: "get" %></li>
+    <% end %>
+    <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
+    <li class="hide-for-medium"><%= link_to "Portfolios", student_portfolios_path, method: "get" %></li>
+    <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
+    <hr>
+    <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+  </ul>
+<% elsif current_user.processor? %>
+  <ul class="submenu menu vertical" data-submenu>
+    <li><%= link_to "My Dashboard", processor_path, method: "get" %></li>
+    <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
+    <hr>
+    <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+  </ul>
+<% end %>

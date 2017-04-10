@@ -1,12 +1,23 @@
-<div class="sidebar show-for-medium medium-2 columns">
-  <div class="sidebar-links">
-    <h5 class="sidebar-link text-center"><%= link_to "Dashboard", student_path, method: "get" %></h5>
-    <% if current_user.profile %>
+<% if current_user.student? %>
+  <div class="sidebar show-for-medium medium-2 columns">
+    <div class="sidebar-links">
+      <h5 class="sidebar-link text-center"><%= link_to "Dashboard", student_path, method: "get" %></h5>
+      <% if current_user.profile %>
       <h5 class="sidebar-link text-center"><%= link_to "Profile", student_profile_path, method: "get" %></h5>
-    <% else %>
+      <% else %>
       <h5 class="sidebar-link text-center"><%= link_to "Profile", new_student_profile_path, method: "get" %></h5>
-    <% end %>
-    <h5 class="sidebar-link text-center"><%= link_to "Projects", student_projects_path, method: "get" %></h5>
-    <h5 class="sidebar-link text-center"><%= link_to "Portfolios", student_portfolios_path, method: "get" %></h5>
+      <% end %>
+      <h5 class="sidebar-link text-center"><%= link_to "Projects", student_projects_path, method: "get" %></h5>
+      <h5 class="sidebar-link text-center"><%= link_to "Portfolios", student_portfolios_path, method: "get" %></h5>
+    </div>
   </div>
-</div>
+<% elsif current_user.processor? %>
+  <div class="sidebar show-for-medium medium-2 columns">
+    <div class="sidebar-links">
+      <h5 class="sidebar-link text-center"><%= link_to "Dashboard", processor_path, method: "get" %></h5>
+      <% current_user.institution.portfolios.each do |portfolio| %>
+        <h5 class="sidebar-link text-center"><%= link_to "#{portfolio.title}", portfolio_path(portfolio), method: "get" %></h5>
+      <% end %>
+    </div>
+  </div>
+<% end %>
