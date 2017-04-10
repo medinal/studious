@@ -13,7 +13,7 @@
           <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">About:</a></li>
           <li class="tabs-title"><a href="#panel2v">Reflection:</a></li>
           <li class="tabs-title"><a href="#panel3v">Images:</a></li>
-          <li class="tabs-title"><a href="#panel4v">Video:</a></li>
+          <li class="tabs-title"><a href="#panel4v">Other Links:</a></li>
         </ul>
       </div>
       <div class="medium-9 columns">
@@ -28,12 +28,20 @@
           </div>
           <div class="tabs-panel" id="panel3v">
             <h5>Images:</h5>
-            <% project.images.each do |image| %>
-              <%= cl_image_tag(image.avatar, :width=>400, :gravity => :face, :crop=>"lfill", class: "float-center") %>
-            <% end %>
+            <div class="orbit" role="region" aria-label="Pictures" data-orbit>
+              <ul class="orbit-container project-images">
+                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                <% project.images.each do |image| %>
+                  <li class="orbit-slide project">
+                    <%= cl_image_tag(image.avatar, :width=>400, :gravity => :face, :crop=>"lfill", class: "float-center") %>
+                  </li>
+                <% end %>
+            </div>
+
           </div>
           <div class="tabs-panel" id="panel4v">
-            <h5>Video:</h5>
+            <h5>Other Links:</h5>
           </div>
         </div>
       </div>

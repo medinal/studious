@@ -47,16 +47,21 @@
    font-size: 3em;
  }
 
-.orbit-slide{
+.home .orbit-slide{
    width: 100vw;
  }
 
-.orbit-slide img {
+.home .orbit-slide img {
   width: 50vw;
 }
 
 .splash-orbit .orbit-container {
   background-image: url("/chalkboard.jpg");
+  background-size: cover;
+  height: auto !important;
+}
+
+.project-images {
   background-size: cover;
   height: auto !important;
 }
