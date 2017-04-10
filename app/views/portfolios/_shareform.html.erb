@@ -1,0 +1,10 @@
+<%= simple_form_for @institutionportfolio, url: submit_path(@portfolio) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :institution, :url => autocomplete_institution_name_student_portfolios_path, :as => :autocomplete, :update_elements => {:id => '#institution'}%>
+    <%= f.hidden_field :institution_id, :id => "institution" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Share Portfolio" %>
+  </div>
+<% end %>

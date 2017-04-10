@@ -1,4 +1,5 @@
 class InstitutionportfoliosController < ApplicationController
+
   before_action :set_institutionportfolio, only: [:show, :edit, :update]
 
   # GET /institutionportfolios
@@ -6,8 +7,14 @@ class InstitutionportfoliosController < ApplicationController
     @portfolios = current_user.institutionportfolios
   end
 
+  def new
+  end
+
   # GET /institutionportfolios/1
   def show
+  end
+
+  def create
   end
 
   # GET /institutionportfolios/1/edit

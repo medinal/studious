@@ -6,4 +6,12 @@ class Institution < ApplicationRecord
   has_many :portfolios, through: :institutionportfolios
   has_many :institutionportfolios
 
+  def only_registered
+    if self.registered?
+      return self.name
+    else
+      return
+    end
+  end
+
 end

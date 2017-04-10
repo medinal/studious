@@ -14,13 +14,17 @@ Rails.application.routes.draw do
     resources :projects do
       resources :images, except: [:index, :show]
     end
-    resources :portfolios, param: :portfolio_id
+    resources :portfolios, param: :portfolio_id do
+      get :autocomplete_institution_name, :on => :collection
+    end
   end
 
   resource :processor, only: [:show] do
     resources :institutionportfolios, :path => 'portfolios'
   end
 
-  get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
+  get "student/portfolios/:portfolio_id/share", to: "portfolios#share", as: "share"
+  post "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
+
 
 end

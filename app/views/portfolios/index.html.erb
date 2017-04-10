@@ -21,7 +21,7 @@
         <td><%= portfolio.title %></td>
         <td><%= portfolio.created_at.strftime('%m/%d/%y') %></td>
         <td><%= portfolio.updated_at.strftime('%m/%d/%y') %></td>
-        <td><%= link_to "", submit_path(portfolio), method: "get", class: "fi-link" %></td>
+        <td><%= link_to "", share_path(portfolio), method: "get", class: "fi-link" %></td>
         <td><%= link_to "", student_portfolio_path(portfolio), method: "get", class: "fi-eye" %></td>
         <td><%= link_to "", edit_student_portfolio_path(portfolio), method: "get", class: "fi-pencil" %></td>
         <td><%= link_to "", student_portfolio_path(portfolio), method: "delete", class: "fi-trash" %></td>

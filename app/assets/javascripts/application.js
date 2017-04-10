@@ -11,8 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require autocomplete-rails
 //= require foundation
 //= require turbolinks
 //= require clipboard
