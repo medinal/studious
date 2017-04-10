@@ -1,0 +1,4 @@
+<%= f.fields_for :images do |image_fields| %>
+  <%= image_fields.label :add_image %>
+  <%= image_fields.file_field :avatar %>
+<% end %>

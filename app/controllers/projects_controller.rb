@@ -43,9 +43,10 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
+      delete_image
       redirect_to student_project_path(@project), notice: 'Project was successfully updated.'
     else
-      render :new
+      render :edit
     end
   end
 
@@ -62,7 +63,16 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:title, :description, :reflection, :date, :status, images_attributes: [:avatar])
+      params.require(:project).permit(:title, :description, :reflection, :date, :status, images_attributes: [:avatar, :remove_avatar, :id])
+    end
+
+    def delete_image
+      @project.images.each do |image|
+        p image
+        if image[:avatar] == nil
+          image.destroy
+        end
+      end
     end
 
 end

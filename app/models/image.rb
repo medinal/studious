@@ -12,4 +12,6 @@ class Image < ApplicationRecord
     errors[:avatar] << "should be less than 5MB" if avatar.size > 5.megabytes
   end
 
+
+
 end
