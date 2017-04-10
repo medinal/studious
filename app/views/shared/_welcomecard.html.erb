@@ -1,14 +1,18 @@
 <div class="welcome-card">
   <div class="card-section">
-      <blockquote>Thank you for viewing my portfolio!
-        <br>
-        <br>
-        <%= @portfolio.welcome_message %>
+      <h2>
+        Welcome!
+        <% if profile.user == current_user %>
+          <%= link_to "", edit_student_profile_path, method: "get", class: "float-right fi-pencil" %>
+        <% end %>
+      </h2>
+      <hr>
+      <blockquote>
+        <%= portfolio.welcome_message %>
         <br>
         <br>
         Sincerely,
         <cite><%= profile.user.name %></cite>
-        </blockquote>
-
+      </blockquote>
   </div>
 </div>

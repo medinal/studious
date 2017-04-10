@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :portfolios, dependent: :destroy
   has_one :image, as: :imageable, dependent: :destroy
   belongs_to :institution
+  has_many :institutionportfolios, through: :institution
 
   enum role: [:student, :processor, :admin, :superuser]
 

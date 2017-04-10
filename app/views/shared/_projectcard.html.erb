@@ -1,32 +1,39 @@
 <div class="card column column-block">
   <div class="card-section">
-    <h2 class="text-center">
+    <h2>
       <%= project.title %>
       <% if project.user == current_user %>
       <%= link_to "", edit_student_project_path(project), method: "get", class: "float-right fi-pencil" %>
       <% end %>
     </h2>
+    <h5>Completed On: <%= project.date.strftime('%m/%d/%y') %></h5>
     <div class="row collapse">
       <div class="medium-3 columns">
         <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
           <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">About:</a></li>
-          <li class="tabs-title"><a href="#panel2v">Image:</a></li>
+          <li class="tabs-title"><a href="#panel2v">Reflection:</a></li>
+          <li class="tabs-title"><a href="#panel3v">Images:</a></li>
+          <li class="tabs-title"><a href="#panel4v">Video:</a></li>
         </ul>
       </div>
       <div class="medium-9 columns">
         <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
           <div class="tabs-panel is-active" id="panel1v">
-            <h5>Completed On: <%= project.date.strftime('%m/%d/%y') %></h5>
-            <hr>
             <h5>Description:</h5>
             <blockquote><%= project.description %></blockquote>
+          </div>
+          <div class="tabs-panel" id="panel2v">
             <h5>Reflection:</h5>
             <blockquote><%= project.reflection %></blockquote>
           </div>
-          <div class="tabs-panel" id="panel2v">
+          <div class="tabs-panel" id="panel3v">
+            <h5>Images:</h5>
             <% project.images.each do |image| %>
-            <%= cl_image_tag(image.avatar, :width=>400, :gravity => :face, :crop=>"lfill", class: "float-center") %>
+              <%= cl_image_tag(image.avatar, :width=>400, :gravity => :face, :crop=>"lfill", class: "float-center") %>
             <% end %>
+          </div>
+          <div class="tabs-panel" id="panel4v">
+            <h5>Video:</h5>
           </div>
         </div>
       </div>

@@ -7,6 +7,8 @@ class Portfolio < ApplicationRecord
   has_many :portfolioprojects, dependent: :destroy
   has_many :projects, through: :portfolioprojects
   has_one :profile, through: :user
+  has_many :institutionportfolios, dependent: :destroy
+  has_many :institutions, through: :institutionportfolios
 
   accepts_nested_attributes_for :portfolioprojects
 

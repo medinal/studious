@@ -8,17 +8,19 @@
         <td class="text-center">View</td>
         <td class="text-center">Status</td>
         <td class="text-center">Name</td>
+        <td class="text-center">Comments</td>
         <td class="text-center">Created On</td>
         <td class="text-center">Last Updated</td>
       </tr>
     </thead>
 
     <tbody>
-      <% @items.each do |item| %>
+      <% @portfolios.each do |item| %>
       <tr>
-        <td><%= link_to "", portfolio_path(item.portfolio), method: "get", class: "fi-eye" %></td>
+        <td><%= link_to "", processor_institutionportfolio_path(item), method: "get", class: "fi-eye" %></td>
         <td><%= item.status %></td>
         <td><%= item.portfolio.user.name %></td>
+        <td><%= item.comments %></td>
         <td><%= item.portfolio.created_at.strftime('%m/%d/%y') %></td>
         <td><%= item.portfolio.updated_at.strftime('%m/%d/%y') %></td>
       </tr>

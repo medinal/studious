@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root to: "home#index"
-  
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   devise_for :users, controllers: {registrations: 'user/registrations', sessions: 'user/sessions'}
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :portfolios, param: :portfolio_id
   end
 
-  resource :processor, only: [:show]
+  resource :processor, only: [:show] do
+    resources :institutionportfolios, :path => 'portfolios'
+  end
 
   get "student/portfolios/:portfolio_id/submit", to: "portfolios#submit", as: "submit"
 
