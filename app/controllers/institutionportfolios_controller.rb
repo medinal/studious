@@ -1,14 +1,13 @@
 class InstitutionportfoliosController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :is_a_processor, except: [:create, :autocomplete_institution_name]
-  before_action :is_a_student, only: [:create, :autocomplete_institution_name]
+  before_action :is_a_processor, except: [:new, :create, :destroy]
+  before_action :is_a_student, only: [:destroy, :new, :create, :autocomplete_institution_name]
 
   before_action :set_institutionportfolio, only: [:show, :edit, :update, :destroy]
   before_action :set_portfolio, only: [:new, :create, :destroy]
 
   autocomplete :institution, :name, :extra_data => [:id, :status], :display_value => :only_registered
-
 
   # GET /institutionportfolios
   def index
