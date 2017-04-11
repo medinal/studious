@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :is_a_student, except: [:show]
+  before_action :is_a_student
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index

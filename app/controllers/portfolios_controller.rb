@@ -1,5 +1,6 @@
 class PortfoliosController < ApplicationController
 
+  before_action :authenticate_user!, except: [:show]
   before_action :is_a_student, except: [:show]
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :share, :submit]
 
