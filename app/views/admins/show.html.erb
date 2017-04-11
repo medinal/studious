@@ -1,0 +1,13 @@
+<div id="main" class="small-12 medium-10 columns">
+  <div class="row">
+    <div class="profile-card small-12 medium-9 columns">
+      <div class="small-12 card-section">
+        <%= render "editform", user: @user %>
+
+        <%= button_to "Remove Employee", admin_path(@user), method: "delete", class: "button alert" %>
+
+      </div>
+    </div>
+    <%= render "shared/usercard", user: @user %>
+  </div>
+</div>

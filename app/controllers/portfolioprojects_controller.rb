@@ -1,5 +1,8 @@
 class PortfolioprojectsController < ApplicationController
 
+  before_action :authenticate_user!
+  before_action :is_a_student
+
   def create
 
   end

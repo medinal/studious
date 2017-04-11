@@ -1,0 +1,30 @@
+<div id="main" class="small-12 columns">
+  <h1>Portfolios</h1>
+
+
+  <table class="text-center">
+    <thead>
+      <tr>
+        <td class="text-center">View</td>
+        <td class="text-center">Status</td>
+        <td class="text-center">Name</td>
+        <td class="text-center">Comments</td>
+        <td class="text-center">Created On</td>
+        <td class="text-center">Last Updated</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @portfolios.each do |item| %>
+      <tr>
+        <td><%= link_to "", processor_institutionportfolio_path(item), method: "get", class: "fi-eye" %></td>
+        <td><%= item.status %></td>
+        <td><%= item.portfolio.user.name %></td>
+        <td><%= item.comments %></td>
+        <td><%= item.portfolio.created_at.strftime('%m/%d/%y') %></td>
+        <td><%= item.portfolio.updated_at.strftime('%m/%d/%y') %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

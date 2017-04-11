@@ -1,7 +1,8 @@
 class PortfoliosController < ApplicationController
 
+  before_action :authenticate_user!, except: [:show]
   before_action :is_a_student, except: [:show]
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :submit]
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :share, :submit]
 
   # GET /portfolios
   def index
@@ -43,9 +44,6 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def submit
-  end
-
   # DELETE /portfolios/1
   def destroy
     @portfolio.destroy
@@ -54,13 +52,13 @@ class PortfoliosController < ApplicationController
 
   private
 
-    def set_portfolio
-      @portfolio = Portfolio.find_by slug: params[:portfolio_id]
-    end
+  def set_portfolio
+    @portfolio = Portfolio.find_by slug: params[:portfolio_id]
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def portfolio_params
-      params.require(:portfolio).permit(:title, :welcome_message, :project_ids => [])
-    end
+  # Only allow a trusted parameter "white list" through.
+  def portfolio_params
+    params.require(:portfolio).permit(:title, :welcome_message, :project_ids => [])
+  end
 
 end

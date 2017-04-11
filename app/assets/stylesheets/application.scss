@@ -12,12 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  *= require foundation_and_overrides
 
  */
 
 #main-body {
   height: 600px;
+  overflow: scroll;
  }
 
  #icon {
@@ -26,6 +28,10 @@
 
 #main {
   overflow: scroll;
+}
+
+.title-link {
+  color: white;
 }
 
  .top-bar, .footer {
@@ -47,16 +53,21 @@
    font-size: 3em;
  }
 
-.orbit-slide{
+.home .orbit-slide{
    width: 100vw;
  }
 
-.orbit-slide img {
+.home .orbit-slide img {
   width: 50vw;
 }
 
 .splash-orbit .orbit-container {
   background-image: url("/chalkboard.jpg");
+  background-size: cover;
+  height: auto !important;
+}
+
+.project-images {
   background-size: cover;
   height: auto !important;
 }
@@ -189,4 +200,8 @@
 
 .profile-card-image {
   width: 100%;
+}
+
+#institutionportfolio-edit {
+  background-color: lightgrey;
 }

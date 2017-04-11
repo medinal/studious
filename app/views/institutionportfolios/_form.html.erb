@@ -1,0 +1,22 @@
+<div id="institutionportfolio-edit" class="small-12 medium-2 columns">
+
+  <h2 class="text-center">Thoughts</h2>
+
+  <%= simple_form_for @institutionportfolio, id: "institutionportfolio-edit-form", url: "/processor/portfolios/#{@institutionportfolio.id}" do |f| %>
+
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :status %>
+    <%= f.input :comments, :input_html => { class: 'test', :cols => 1, :rows => 2 } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update" %>
+  </div>
+
+  <% end %>
+
+  <%= button_to "Back", processor_institutionportfolios_path, method: "get", class: "button" %>
+
+</div>

@@ -1,7 +1,7 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><h1><span class="top-bar-title">Studious | <small>portfolios reimagined</small></span></h1></li>
+      <li><h1><span class="top-bar-title"><a class="title-link" href="/">Studious | <small>portfolios reimagined</a></small></span></h1></li>
     </ul>
   </div>
   <div class="top-bar-right">
@@ -18,19 +18,7 @@
           <% else %>
             <%= cl_image_tag(current_user.image.avatar, :gravity=>"face", :width=>50, :height=>50, :crop=>"thumb") %>
           <% end %></a>
-          <ul class="submenu menu vertical" data-submenu>
-            <li><%= link_to "My Dashboard", student_path, method: "get" %></li>
-            <% if current_user.profile %>
-              <li class="hide-for-medium"><%= link_to "Profile", student_profile_path, method: "get" %></li>
-            <% else %>
-              <li class="hide-for-medium"><%= link_to "Profile", new_student_profile_path, method: "get" %></li>
-            <% end %>
-            <li class="hide-for-medium"><%= link_to "Projects", student_projects_path, method: "get" %></li>
-            <li class="hide-for-medium"><%= link_to "Portfolios", student_portfolios_path, method: "get" %></li>
-            <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
-            <hr>
-            <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
-          </ul>
+          <%= render "shared/dropdown" %>
         </li>
       </ul>
     <% end %>

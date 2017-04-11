@@ -4,14 +4,22 @@
   <%= f.input :description, label: "Describe what you accomplished." %>
   <%= f.input :reflection, label: "What would you do differently if you had the chance?" %>
   <%= f.input :date, label: "When did you accomplish it?", html5: true %>
-  <%= f.fields_for :images do |image_fields| %>
-    <%= image_fields.label :add_image %>
-    <%= image_fields.file_field :avatar %>
-  <% end %>
-  <%= f.input :status %>
+  <div class="projects-form-images">
+    <%= render "images", f: f %>
+  </div>
+  <button class="button small success button-form-images">Add another image.</button>
+    <%= f.input :status %>
 </div>
 
 <div class="form-actions">
-  <%= f.button :submit, "project" %>
+  <%= f.button :submit, "Create Project", { class: 'float-right' } %>
 </div>
+
+<script type="text/javascript">
+  $(".button-form-images").on("click", function(e){
+    e.preventDefault();
+    $(".projects-form-images").append("<%= escape_javascript(render "images", f: f) %>");
+  });
+</script>
+
 <% end %>

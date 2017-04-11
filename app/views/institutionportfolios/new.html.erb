@@ -1,0 +1,40 @@
+<div class="medium-6 medium-offset-2 columns">
+  <br>
+  <br>
+  <div class="row input-group">
+    <span class="input-group-label">Shareable Link</span>
+    <input id="link-field" class="input-group-field" type="text" value="<%= "http://localhost:3000/portfolios/#{@portfolio.identifier.downcase}" %>">
+    <div class="input-group-button">
+      <button class="clipboard-btn" data-clipboard-target="#link-field"><i id="copy" class="fi-page-copy"></i></button>
+    </div>
+  </div>
+    <h3 class="text-center">~or~</h3>
+    <h2 class="text-center">Share with an Institution</h2>
+
+    <%= render 'shareform'  %>
+
+  <table class="text-center">
+    <thead>
+      <tr>
+        <td class="text-center">Shared On</td>
+        <td class="text-center">Portfolio Name</td>
+        <td class="text-center">Institution Shared With</td>
+        <td class="text-center">View Portfolio</td>
+        <td class="text-center">Delete</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @portfolio.institutionportfolios.each do |ip| %>
+      <tr>
+        <td><%= ip.portfolio.created_at.strftime('%m/%d/%y') %></td>
+        <td><%= ip.portfolio.title %></td>
+        <td><%= ip.institution.name %></td>
+        <td><%= link_to "", student_portfolio_path(ip.portfolio), method: "get", class: "fi-eye" %></td>
+        <td><%= link_to "", student_institutionportfolio_path(ip), method: "delete", class: "fi-trash" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  
+  before_action :authenticate_user!
   before_action :set_image, only: [:show, :edit, :update, :destroy]
 
   # GET /images/new
@@ -19,13 +21,11 @@ class ImagesController < ApplicationController
       @imageable = current_user
       @image = @imageable.build_image(image_params)
     end
-
     if @image.save
       redirect_to student_path, notice: "Image was successfully added."
     else
       render :new
     end
-
   end
 
   # PATCH/PUT /images/1
@@ -51,7 +51,7 @@ class ImagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def image_params
-      params.require(:image).permit(:avatar, :project_id, :id)
+      params.require(:image).permit(:avatar, :project_id, :id, :remove_avatar)
     end
 
 end

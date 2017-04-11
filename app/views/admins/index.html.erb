@@ -1,0 +1,31 @@
+<div id="main" class="small-12 columns">
+  <h1><%= current_user.institution.name %>'s Employees</h1>
+
+
+  <table class="text-center">
+    <thead>
+      <tr>
+        <td class="text-center">View</td>
+        <td class="text-center">Name</td>
+        <td class="text-center">Role</td>
+        <td class="text-center">Created On</td>
+        <td class="text-center">Last Updated</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to "", admin_path(user), method: "get", class: "fi-eye" %></td>
+        <td><%= user.name %></td>
+        <td><%= user.role %></td>
+        <td><%= user.created_at %></td>
+        <td><%= user.updated_at %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td colspan="5" class="text-center"><%= link_to 'New Employee', new_admin_path, method: "get", class: "button expanded"%></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
