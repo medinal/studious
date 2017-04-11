@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
       @user = current_user
     end
 
+
   private
 
 
