@@ -13,7 +13,7 @@
       <% if !current_user %>
         <h6><%= link_to "Register", new_user_registration_path, method: "get" %></h6>
         <h6><%= link_to "Log In", new_user_session_path, method: "get" %></h6>
-      <% else %>
+      <% elsif current_user.student? %>
         <h6><%= link_to "Dashboard", student_path, method: "get" %></h6>
         <% if current_user.profile %>
           <h6><%= link_to "Profile", student_profile_path, method: "get" %></h6>
@@ -25,6 +25,19 @@
         <hr>
         <h6><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></h6>
         <h6><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></h6>
+      <% elsif current_user.processor? %>
+          <h6><%= link_to "Dashboard", processor_path, method: "get" %></h6>
+          <h6><%= link_to "Portfolios", processor_institutionportfolios_path, method: "get" %></h6>
+          <hr>
+          <h6><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></h6>
+          <h6><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></h6>
+      <% elsif current_user.admin? %>
+          <h6><%= link_to "Admin Dashboard", admins_path, method: "get" %></h6>
+          <h6><%= link_to "Processor Dashboard", processor_path, method: "get" %></h6>
+          <h6><%= link_to "Portfolios", processor_institutionportfolios_path, method: "get" %></h6>
+          <h6><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></h6>
+          <hr>
+          <h6><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></h6>
       <% end %>
     </div>
   </div>

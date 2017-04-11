@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   #Superuser routes
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/superuser', as: 'rails_admin'
 
   #Session Routes
   devise_for :users, controllers: {registrations: 'user/registrations', sessions: 'user/sessions'}
@@ -30,5 +30,8 @@ Rails.application.routes.draw do
   resource :processor, only: [:show] do
     resources :institutionportfolios, :path => 'portfolios', except: [:new, :create, :destroy]
   end
+
+  #Admin Routes
+  resources :admins
 
 end

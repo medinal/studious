@@ -1,0 +1,12 @@
+<%= simple_form_for @user, url: "/admins/#{@user.id}" do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :role, collection: {processor: 0, admin: 1} %>
+    <%= f.hidden_field :institution_id, :value => current_user.institution_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update Employee" %>
+  </div>
+<% end %>

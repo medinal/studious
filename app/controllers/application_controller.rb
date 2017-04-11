@@ -12,7 +12,13 @@ class ApplicationController < ActionController::Base
   end
 
   def is_a_processor
-    if !current_user.processor?
+    if !(current_user.processor? || current_user.admin?)
+      redirect_to root_path
+    end
+  end
+
+  def is_an_admin
+    if !current_user.admin?
       redirect_to root_path
     end
   end

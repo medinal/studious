@@ -4,7 +4,8 @@ class ProcessorsController < ApplicationController
   before_action :is_a_processor
 
   def show
-    @items = current_user.institution.institutionportfolios
+    @user = current_user
+    @quote = Quote.order("RANDOM()").first
   end
 
 end

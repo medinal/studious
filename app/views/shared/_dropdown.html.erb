@@ -15,6 +15,16 @@
 <% elsif current_user.processor? %>
   <ul class="submenu menu vertical" data-submenu>
     <li><%= link_to "My Dashboard", processor_path, method: "get" %></li>
+    <li><%= link_to "Portfolios", processor_institutionportfolios_path, method: "get" %></li>
+    <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
+    <hr>
+    <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+  </ul>
+<% elsif current_user.admin? %>
+  <ul class="submenu menu vertical" data-submenu>
+    <li><%= link_to "Admin Dashboard", admins_path, method: "get" %></li>
+    <li><%= link_to "Processor Dashboard", processor_path, method: "get" %></li>
+    <li><%= link_to "Portfolios", processor_institutionportfolios_path, method: "get" %></li>
     <li><%= link_to "Account Settings", edit_user_registration_path, method: "get" %></li>
     <hr>
     <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>

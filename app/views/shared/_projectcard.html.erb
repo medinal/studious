@@ -1,4 +1,4 @@
-<div class="card column column-block">
+<div class="show-for-medium card column column-block">
   <div class="card-section">
     <h2>
       <%= project.title %>
@@ -10,23 +10,23 @@
     <div class="row collapse">
       <div class="medium-3 columns">
         <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
-          <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">About:</a></li>
-          <li class="tabs-title"><a href="#panel2v">Reflection:</a></li>
-          <li class="tabs-title"><a href="#panel3v">Images:</a></li>
-          <li class="tabs-title"><a href="#panel4v">Other Links:</a></li>
+          <li class="tabs-title is-active"><a href="#<%= project.id %>panel1v" aria-selected="true">About:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel2v">Reflection:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel3v">Images:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel4v">Other Links:</a></li>
         </ul>
       </div>
       <div class="medium-9 columns">
         <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
-          <div class="tabs-panel is-active" id="panel1v">
+          <div class="tabs-panel is-active" id="<%= project.id %>panel1v">
             <h5>Description:</h5>
             <blockquote><%= project.description %></blockquote>
           </div>
-          <div class="tabs-panel" id="panel2v">
+          <div class="tabs-panel" id="<%= project.id %>panel2v">
             <h5>Reflection:</h5>
             <blockquote><%= project.reflection %></blockquote>
           </div>
-          <div class="tabs-panel" id="panel3v">
+          <div class="tabs-panel" id="<%= project.id %>panel3v">
             <h5>Images:</h5>
             <div class="orbit" role="region" aria-label="Pictures" data-orbit>
               <ul class="orbit-container project-images">
@@ -40,7 +40,58 @@
             </div>
 
           </div>
-          <div class="tabs-panel" id="panel4v">
+          <div class="tabs-panel" id="<%= project.id %><%= project.id %>panel4v">
+            <h5>Other Links:</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hide-for-medium card column column-block">
+  <div class="card-section">
+    <h2>
+      <%= project.title %>
+      <% if project.user == current_user %>
+      <%= link_to "", edit_student_project_path(project), method: "get", class: "float-right fi-pencil" %>
+      <% end %>
+    </h2>
+    <h5>Completed On: <%= project.date.strftime('%m/%d/%y') %></h5>
+    <div class="row collapse">
+      <div class="small-12 columns">
+        <ul class="tabs" id="example-vert-tabs" data-tabs>
+          <li class="tabs-title is-active"><a href="#<%= project.id %>panel1z" aria-selected="true">About:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel2z">Reflection:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel3z">Images:</a></li>
+          <li class="tabs-title"><a href="#<%= project.id %>panel4z">Other Links:</a></li>
+        </ul>
+      </div>
+      <div class="small-12 columns">
+        <div class="tabs-content" data-tabs-content="example-vert-tabs">
+          <div class="tabs-panel is-active" id="<%= project.id %>panel1z">
+            <h5>Description:</h5>
+            <blockquote><%= project.description %></blockquote>
+          </div>
+          <div class="tabs-panel" id="<%= project.id %>panel2z">
+            <h5>Reflection:</h5>
+            <blockquote><%= project.reflection %></blockquote>
+          </div>
+          <div class="tabs-panel" id="<%= project.id %>panel3z">
+            <h5>Images:</h5>
+            <div class="orbit" role="region" aria-label="Pictures" data-orbit>
+              <ul class="orbit-container project-images">
+                <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                <% project.images.each do |image| %>
+                  <li class="orbit-slide project">
+                    <%= cl_image_tag(image.avatar, :width=>400, :gravity => :face, :crop=>"lfill", class: "float-center") %>
+                  </li>
+                <% end %>
+            </div>
+
+          </div>
+          <div class="tabs-panel" id="<%= project.id %>panel4z">
             <h5>Other Links:</h5>
           </div>
         </div>

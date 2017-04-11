@@ -1,7 +1,7 @@
 class InstitutionportfoliosController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :is_a_processor, except: [:new, :create, :destroy]
+  before_action :is_a_processor, except: [:new, :create, :destroy, :autocomplete_institution_name]
   before_action :is_a_student, only: [:destroy, :new, :create, :autocomplete_institution_name]
 
   before_action :set_institutionportfolio, only: [:show, :edit, :update, :destroy]
@@ -41,7 +41,7 @@ class InstitutionportfoliosController < ApplicationController
   # PATCH/PUT /institutionportfolios/1
   def update
     if @institutionportfolio.update(institutionportfolio_params)
-      redirect_to processor_institutionportfolio_path(@institutionportfolio), notice: 'Institutionportfolio was successfully updated.'
+      redirect_to processor_institutionportfolios_path, notice: 'Portfolio was successfully updated.'
     else
       render :edit
     end

@@ -19,6 +19,7 @@
 
 #main-body {
   height: 600px;
+  overflow: scroll;
  }
 
  #icon {
@@ -199,4 +200,8 @@
 
 .profile-card-image {
   width: 100%;
+}
+
+#institutionportfolio-edit {
+  background-color: lightgrey;
 }
