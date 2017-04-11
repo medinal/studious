@@ -17,59 +17,17 @@
 
  */
 
+//////////
+// Main //
+//////////
+
 #main-body {
   height: 600px;
   overflow: scroll;
- }
-
- #icon {
-   max-height: 60px;
- }
+}
 
 #main {
   overflow: scroll;
-}
-
-.title-link {
-  color: white;
-}
-
- .top-bar, .footer {
-   border-top-color: #0D70C3;
-   border-top-style: solid;
-   border-top-width: 1px;
-   border-bottom-color: #0D70C3;
-   border-bottom-style: solid;
-   border-bottom-width: 1px;
- }
-
-#main-menu, .top-bar, .top-bar, .top-bar ul{
-  background-color: black;
-  color: white;
-}
-
- .user-icon {
-   color: white;
-   font-size: 3em;
- }
-
-.home .orbit-slide{
-   width: 100vw;
- }
-
-.home .orbit-slide img {
-  width: 50vw;
-}
-
-.splash-orbit .orbit-container {
-  background-image: url("/chalkboard.jpg");
-  background-size: cover;
-  height: auto !important;
-}
-
-.project-images {
-  background-size: cover;
-  height: auto !important;
 }
 
 .aligner {
@@ -77,26 +35,47 @@
   align-items: center !important;
 }
 
-.caption {
-  width: 50vw;
+.full-width {
+  max-width: 1400px;
 }
 
-.caption h2 {
-  font-family: 'Amatic SC', cursive !important;
-  font-size: 4em;
-  font-weight: 600;
+.flash {
+  position: fixed;
+  top: 2.5vh;
+  left: 35vw;
+  width: 30vw;
+  z-index: 100;
+  padding: 7px;
+  border-radius: .5rem;
+  background-color: rgba(0,0,0,.5);
   color: white;
 }
 
-.register-now {
-  background-color: lightgrey;
-  color: black;
-  padding-top: 2em;
-  padding-bottom: 2em;
+
+////////////////////////
+// Top-Bar and Footer //
+////////////////////////
+
+.top-bar, .footer {
+  border-top-color: #0D70C3;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-bottom-color: #0D70C3;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
 }
 
-.full-width {
-  max-width: 1400px;
+.title-link {
+  color: white;
+}
+
+#icon {
+  max-height: 60px;
+}
+
+#main-menu, .top-bar, .top-bar, .top-bar ul{
+  background-color: black;
+  color: white;
 }
 
 .footer {
@@ -105,6 +84,7 @@
   text-align: center;
   color: #fff;
 }
+
 .footer i {
   font-size: 100px;
 }
@@ -129,6 +109,7 @@
     min-height: 280px;
   }
 }
+
 .footer-links {
   list-style-type: none;
 }
@@ -136,40 +117,10 @@
   margin-top: .5em;
 }
 
-.flash {
-  position: fixed;
-  top: 2.5vh;
-  left: 35vw;
-  width: 30vw;
-  z-index: 100;
-  padding: 7px;
-  border-radius: .5rem;
-  background-color: rgba(0,0,0,.5);
-  color: white;
-}
 
-.profile-card, .welcome-card{
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-.about-me-card {
-  padding-top: 1em;
-  padding-bottom: 1em;
-}
-
-.project-card {
-  margin: .5em;
-}
-
-.quote-card {
-  border-radius: 1em;
-}
-
-.dashboard-card {
-  font-size: 5em;
-  text-align: center;
-}
+/////////////
+// Sidebar //
+/////////////
 
 .sidebar {
   background-color: black;
@@ -189,6 +140,106 @@
   padding-bottom: 2em;
 }
 
+
+///////////////
+// Home Page //
+///////////////
+
+.splash-orbit .orbit-container {
+  background-image: url("/chalkboard.jpg");
+  background-size: cover;
+  height: auto !important;
+}
+
+.home .orbit-slide{
+   width: 100vw;
+ }
+
+.home .orbit-slide img {
+  width: 50vw;
+}
+
+.caption {
+  width: 50vw;
+}
+
+.caption h2 {
+  font-family: 'Amatic SC', cursive !important;
+  font-size: 4em;
+  font-weight: 600;
+  color: white;
+}
+
+.register-now {
+  background-color: lightgrey;
+  color: black;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+
+///////////////////
+// Project Cards //
+///////////////////
+
+.project-images {
+  background-size: cover;
+  height: auto !important;
+}
+
+.project-card {
+  margin: .5em;
+}
+
+
+
+///////////////////
+// Profile Cards //
+///////////////////
+
+.profile-card, .welcome-card{
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.profile-card-image {
+  width: 100%;
+}
+
+
+////////////////////
+// About Me Cards //
+///////////////////
+
+.about-me-card {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+
+/////////////////
+// Quote Cards //
+/////////////////
+
+.quote-card {
+  border-radius: 1em;
+}
+
+
+/////////////////////
+// Dashboard Cards //
+/////////////////////
+
+.dashboard-card {
+  font-size: 5em;
+  text-align: center;
+}
+
+
+/////////////
+// Sharing //
+/////////////
+
 #copy {
   font-size: 2em;
 }
@@ -198,9 +249,10 @@
   align-items: center;
 }
 
-.profile-card-image {
-  width: 100%;
-}
+
+////////////////////////////////////////
+// Institution Portfolio Edit Sidebar //
+////////////////////////////////////////
 
 #institutionportfolio-edit {
   background-color: lightgrey;
