@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
       student_path
     elsif resource.processor?
       processor_path
+    elsif resource.admin?
+      admins_path
+    elsif resource.superuser?
+      rails_admin_path
     end
   end
 
