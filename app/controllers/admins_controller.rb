@@ -35,7 +35,6 @@ class AdminsController < ApplicationController
 
   def create
     @user = User.new(user_params)
-  
     respond_to do |format|
       if @user.save
         format.html { redirect_to admins_path, notice: 'User was successfully created.' }
