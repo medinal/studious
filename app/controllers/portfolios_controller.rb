@@ -1,7 +1,5 @@
 class PortfoliosController < ApplicationController
 
-  autocomplete :institution, :name, :extra_data => [:id, :status], :display_value => :only_registered
-
   before_action :is_a_student, except: [:show]
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :share, :submit]
 
@@ -45,30 +43,10 @@ class PortfoliosController < ApplicationController
     end
   end
 
-  def share
-    @institutionportfolio = Institutionportfolio.new
-  end
-
-  def submit
-    @institutionportfolio = Institutionportfolio.new(institutionportfolio_params)
-    @institutionportfolio.portfolio = @portfolio
-    if @institutionportfolio.save
-      redirect_to @portfolio, notice: 'Portfolio was successfully shared.'
-    else
-      render @portfolio
-    end
-  end
-
   # DELETE /portfolios/1
   def destroy
     @portfolio.destroy
     redirect_to student_portfolios_path, notice: 'Portfolio was successfully destroyed.'
-  end
-
-  def autocomplete_institution_name
-    term = params[:term]
-    institutions = Institution.where('status = 2').where('name LIKE ?', "%#{term}%").order(:name).all
-    render :json => institutions.map { |institution| {:id => institution.id, :name => institution.name, :value => institution.name} }
   end
 
   private
@@ -81,10 +59,5 @@ class PortfoliosController < ApplicationController
   def portfolio_params
     params.require(:portfolio).permit(:title, :welcome_message, :project_ids => [])
   end
-
-  def institutionportfolio_params
-    params.require(:institutionportfolio).permit(:institution_id)
-  end
-
 
 end

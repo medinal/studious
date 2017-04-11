@@ -13,4 +13,28 @@
 
     <%= render 'shareform'  %>
 
+  <table class="text-center">
+    <thead>
+      <tr>
+        <td class="text-center">Shared On</td>
+        <td class="text-center">Portfolio Name</td>
+        <td class="text-center">Institution Shared With</td>
+        <td class="text-center">View Portfolio</td>
+        <td class="text-center">Delete</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @portfolio.institutionportfolios.each do |ip| %>
+      <tr>
+        <td><%= ip.portfolio.created_at.strftime('%m/%d/%y') %></td>
+        <td><%= ip.portfolio.title %></td>
+        <td><%= ip.institution.name %></td>
+        <td><%= link_to "", student_portfolio_path(ip.portfolio), method: "get", class: "fi-eye" %></td>
+        <td><%= link_to "", student_institutionportfolio_path(ip), method: "delete", class: "fi-trash" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>

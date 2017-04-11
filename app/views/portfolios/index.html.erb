@@ -5,11 +5,11 @@
   <table class="text-center">
     <thead>
       <tr>
+        <td class="text-center">View</td>
         <td class="text-center">Name</td>
         <td class="text-center">Created On</td>
         <td class="text-center">Last Updated</td>
-        <td class="text-center">Portfolio Link</td>
-        <td class="text-center">View</td>
+        <td class="text-center">Share</td>
         <td class="text-center">Edit</td>
         <td class="text-center">Delete</td>
       </tr>
@@ -18,11 +18,11 @@
     <tbody>
       <% @portfolios.each do |portfolio| %>
       <tr>
+        <td><%= link_to "", student_portfolio_path(portfolio), method: "get", class: "fi-eye" %></td>
         <td><%= portfolio.title %></td>
         <td><%= portfolio.created_at.strftime('%m/%d/%y') %></td>
         <td><%= portfolio.updated_at.strftime('%m/%d/%y') %></td>
         <td><%= link_to "", share_path(portfolio), method: "get", class: "fi-link" %></td>
-        <td><%= link_to "", student_portfolio_path(portfolio), method: "get", class: "fi-eye" %></td>
         <td><%= link_to "", edit_student_portfolio_path(portfolio), method: "get", class: "fi-pencil" %></td>
         <td><%= link_to "", student_portfolio_path(portfolio), method: "delete", class: "fi-trash" %></td>
       </tr>
