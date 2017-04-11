@@ -18,8 +18,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
 # Use foundation for styling
 gem 'foundation-rails'
 # Use jquery as the JavaScript library
@@ -30,20 +28,12 @@ gem 'jquery-ui-rails'
 gem 'rails-jquery-autocomplete'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
 # Jquery turbolinks
 gem 'jquery-turbolinks'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 # Zip-Code Translator
 gem 'zip-codes'
 # User devise for authorization
 gem 'devise'
-# authorization
-gem "cancancan"
 # Date Validation
 gem 'validates_timeliness', '~> 4.0'
 gem 'date_validator'
@@ -51,8 +41,6 @@ gem 'date_validator'
 gem 'carrierwave', '~> 1.0'
 # Cloud hosting and serving of files/pictures
 gem 'cloudinary'
-# Use Figaro to keep secret keys
-gem 'figaro'
 # pretty urls
 gem 'friendly_id', '~> 5.2'
 # admin portal
@@ -64,6 +52,7 @@ gem 'simple_form'
 # Use enum_help for enumerable types in forms
 gem 'enum_help'
 # For use when deploying to heroku
+
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
