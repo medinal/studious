@@ -13,7 +13,9 @@
           <li class="tabs-title is-active"><a href="#<%= project.id %>panel1v" aria-selected="true">About:</a></li>
           <li class="tabs-title"><a href="#<%= project.id %>panel2v">Reflection:</a></li>
           <li class="tabs-title"><a href="#<%= project.id %>panel3v">Images:</a></li>
-          <li class="tabs-title"><a href="#<%= project.id %>panel4v">Other Links:</a></li>
+          <% if project.video_url || project.link_url %>
+            <li class="tabs-title"><a href="#<%= project.id %>panel4v">Other Links:</a></li>
+          <% end %>
         </ul>
       </div>
       <div class="medium-9 columns">
@@ -40,9 +42,19 @@
             </div>
 
           </div>
-          <div class="tabs-panel" id="<%= project.id %><%= project.id %>panel4v">
-            <h5>Other Links:</h5>
-          </div>
+          <% if project.video_url || project.link_url %>
+            <div class="tabs-panel" id="<%= project.id %><%= project.id %>panel4v">
+              <h5>Other Links:</h5>
+              <% if project.video_url %>
+                <h3>Video:</h3>
+                <blockquote><a href="<%= project.video_url %>">Here is a video of my project.</a></blockquote>
+              <% end %>
+              <% if project.link_url %>
+                <h3>Video:</h3>
+                <blockquote><a href="<%= project.link_url %>">Here is a link to my project.</a></blockquote>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -64,7 +76,9 @@
           <li class="tabs-title is-active"><a href="#<%= project.id %>panel1z" aria-selected="true">About:</a></li>
           <li class="tabs-title"><a href="#<%= project.id %>panel2z">Reflection:</a></li>
           <li class="tabs-title"><a href="#<%= project.id %>panel3z">Images:</a></li>
-          <li class="tabs-title"><a href="#<%= project.id %>panel4z">Other Links:</a></li>
+          <% if project.video_url || project.link_url %>
+            <li class="tabs-title"><a href="#<%= project.id %>panel4z">Other Links:</a></li>
+          <% end %>
         </ul>
       </div>
       <div class="small-12 columns">
@@ -91,9 +105,19 @@
             </div>
 
           </div>
-          <div class="tabs-panel" id="<%= project.id %>panel4z">
-            <h5>Other Links:</h5>
-          </div>
+          <% if project.video_url || project.link_url %>
+            <div class="tabs-panel" id="<%= project.id %><%= project.id %>panel4z">
+              <h5>Other Links:</h5>
+              <% if project.video_url %>
+                <h3>Video:</h3>
+                <blockquote><a href="<%= project.video_url %>">Here is a video of my project.</a></blockquote>
+              <% end %>
+              <% if project.link_url %>
+                <h3>Video:</h3>
+                <blockquote><a href="<%= project.link_url %>">Here is a link to my project.</a></blockquote>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
