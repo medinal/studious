@@ -13,6 +13,7 @@ class User < ApplicationRecord
   enum role: [:student, :processor, :admin, :superuser]
 
   validates :name, :email, :role, presence: true
+  validates :email, length: {maximum: 50}
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
 end
