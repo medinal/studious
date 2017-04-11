@@ -51,8 +51,10 @@ gem 'clipboard-rails'
 gem 'simple_form'
 # Use enum_help for enumerable types in forms
 gem 'enum_help'
-# For use when deploying to heroku
+# Use will paginate for pagination
+gem 'will_paginate', '~> 3.1.0'
 
+# For use when deploying to heroku
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment
