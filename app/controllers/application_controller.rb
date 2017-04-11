@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_quote
+    @quote = Quote.order("RANDOM()").first
+  end
+
   def is_a_student
     if !current_user.student?
       redirect_to root_path
