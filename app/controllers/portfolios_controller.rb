@@ -23,8 +23,12 @@ class PortfoliosController < ApplicationController
 
 
     def new
-      @portfolio = Portfolio.new
-      @portfolio.portfolioprojects.build
+      if current_user.profile
+        @portfolio = Portfolio.new
+        @portfolio.portfolioprojects.build
+      else
+        redirect_to new_student_profile_path, notice: "You must make a profile before creating your portfolio"
+      end
     end
 
 
