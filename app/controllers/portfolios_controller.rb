@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
 
 
     def index
-      @portfolios = current_user.portfolios
+      @portfolios = current_user.portfolios.paginate(page: params[:page], per_page: 7)
     end
 
 

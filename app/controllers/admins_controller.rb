@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = current_user.institution.users
+    @users = current_user.institution.users.paginate(page: params[:page], per_page: 10)
   end
 
   def show

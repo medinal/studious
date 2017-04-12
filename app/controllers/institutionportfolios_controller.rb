@@ -11,7 +11,7 @@ class InstitutionportfoliosController < ApplicationController
 
 
   def index
-    @portfolios = current_user.institutionportfolios
+    @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
   end
 
 
