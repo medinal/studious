@@ -28,10 +28,13 @@ Rails.application.routes.draw do
 
   #Processor Routes
   resource :processor, only: [:show] do
+    resource :image
     resources :institutionportfolios, :path => 'portfolios', except: [:new, :create, :destroy]
   end
 
   #Admin Routes
-  resources :admins
+  resources :admins do
+    resource :image
+  end
 
 end
