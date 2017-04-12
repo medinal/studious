@@ -2,7 +2,7 @@
   <h1>Your Projects</h1>
 
   <%= form_tag(student_projects_path, :method => "get", enforce_utf8: false, id: "filter-form") do %>
-    <%= select_tag :filter, options_for_select(Project.statuses), id: "filter-select" %>
+    <%= select_tag :filter, options_for_select({all: "all", draft: 0, completed: 1, archived: 2}, @filter), id: "filter-select" %>
   <% end %>
 
   <table class="text-center">

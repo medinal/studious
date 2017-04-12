@@ -1,6 +1,6 @@
 class Project < ApplicationRecord
 
-  enum status: { "draft" => 0, "published" => 1, "archived" => 2 }
+  enum status: { "draft" => 0, "completed" => 1, "archived" => 2 }
 
   belongs_to :user
   has_many :portfolioprojects, dependent: :destroy

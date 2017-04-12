@@ -5,8 +5,9 @@ class AdminsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:filter]
+    if params[:filter] && params[:filter] != "all"
       @users = current_user.institution.users.where(role: params[:filter]).paginate(page: params[:page], per_page: 7)
+      @filter = params[:filter]
     else
       @users = current_user.institution.users.paginate(page: params[:page], per_page: 7)
     end

@@ -6,8 +6,9 @@ class ProjectsController < ApplicationController
 
 
     def index
-      if params[:filter]
+      if params[:filter] && params[:filter] != "all"
         @projects = current_user.projects.where(status: params[:filter]).paginate(page: params[:page], per_page: 7)
+        @filter = params[:filter]
       else
         @projects = current_user.projects.paginate(page: params[:page], per_page: 7)
       end

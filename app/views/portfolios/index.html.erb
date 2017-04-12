@@ -2,7 +2,7 @@
   <h1>Your Portfolios</h1>
 
   <%= form_tag(student_portfolios_path, :method => "get", enforce_utf8: false, id: "filter-form") do %>
-    <%= select_tag :filter, options_for_select(Portfolio.statuses), id: "filter-select" %>
+    <%= select_tag :filter, options_for_select({all: "all", draft: 0, submitted: 1, archived: 2}, @filter), id: "filter-select" %>
   <% end %>
 
   <table class="text-center">

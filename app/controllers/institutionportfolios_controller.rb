@@ -11,8 +11,9 @@ class InstitutionportfoliosController < ApplicationController
 
 
   def index
-    if params[:filter]
+    if params[:filter] && params[:filter] != "all"
       @portfolios = current_user.institutionportfolios.where(status: params[:filter]).paginate(page: params[:page], per_page: 7)
+      @filter = params[:filter]
     else
       @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
     end
