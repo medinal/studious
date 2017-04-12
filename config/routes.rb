@@ -34,4 +34,7 @@ Rails.application.routes.draw do
   #Admin Routes
   resources :admins
 
+  match "*path", to: "application#redirect", via: :all
+
+
 end
