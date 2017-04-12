@@ -25,19 +25,19 @@ class ApplicationController < ActionController::Base
 
   def is_a_student
     if !current_user.student?
-      redirect_to root_path
+      redirect_to redirect_path
     end
   end
 
   def is_a_processor
     if !(current_user.processor? || current_user.admin?)
-      redirect_to root_path
+      redirect_to redirect_path
     end
   end
 
   def is_an_admin
     if !current_user.admin?
-      redirect_to root_path
+      redirect_to redirect_path
     end
   end
 
