@@ -5,6 +5,7 @@
 
 ## ERD
 ![ERD](github.com/medinal/studious/ERD.png)
+![ERD](medinal.github.com/studiously/erd.png)
 
 ## System dependencies
 - There really aren't any special system dependencies.
