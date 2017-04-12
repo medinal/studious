@@ -1,0 +1,37 @@
+<div class="row">
+
+  <div class="small-12 columns">
+    <h1 class="text-center">
+      <% if @portfolio.user == current_user %>
+        <%= link_to "", edit_student_portfolio_path(@portfolio), method: "get", class: "float-right fi-pencil" %>
+      <% end %>
+    </h1>
+    <ul class="tabs small-12 columns" data-tabs id="example-tabs">
+      <li class="tabs-title is-active"><a href="#panel1" aria-selected="true">Welcome</a></li>
+      <li class="tabs-title"><a href="#panel2" aria-selected="true">Profile</a></li>
+      <li class="tabs-title"><a href="#panel3">Projects</a></li>
+      <li class="float-right"><h3><%= @portfolio.user.name %></h3></li>
+    </ul>
+    <div class="tabs-content" data-tabs-content="example-tabs">
+      <div class="tabs-panel is-active" id="panel1">
+        <div class="row">
+            <%= render "shared/welcomecard", profile: @portfolio.profile, portfolio: @portfolio %>
+        </div>
+      </div>
+      <div class="tabs-panel" id="panel2">
+        <div class="row">
+          <div class="small-12 medium-9 columns">
+            <%= render "shared/profilecard", profile: @portfolio.profile %>
+          </div>
+            <%= render "shared/usercard", user: @portfolio.user %>
+        </div>
+      </div>
+      <div class="tabs-panel" id="panel3">
+        <% @portfolio.projects.each do |project| %>
+        <%= render "shared/projectcard", project: project %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
