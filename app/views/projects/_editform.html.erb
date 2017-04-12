@@ -4,15 +4,16 @@
   <%= f.input :description, label: "Describe what you accomplished." %>
   <%= f.input :reflection, label: "What would you do differently if you had the chance?" %>
   <%= f.input :date, label: "When did you accomplish it?", html5: true %>
-  <%= f.input :video_url, label: "Do you have a video url to share?" %>
-  <%= f.input :link_url, label: "Do you have a link to any other resources?" %>
-    <div class="field form-group">
-      <%= f.fields_for :images do |image_fields| %>
-        <%= cl_image_tag(image_fields.object.avatar, :width => 150, :crop=> :fit) %>
-        <%= image_fields.label :remove_photo %>
-        <%= image_fields.check_box :remove_avatar %><br>
-      <% end %>
-    </div>
+  <%= f.input :video_url, label: "Link to Video" %>
+  <%= f.input :link_url, label: "Link to Other Resources" %>
+
+  <div class="field form-group">
+    <%= f.fields_for :images do |image_fields| %>
+      <%= cl_image_tag(image_fields.object.avatar, :width => 150, :crop=> :fit) %>
+      <%= image_fields.label :remove_photo %>
+      <%= image_fields.check_box :remove_avatar %><br>
+    <% end %>
+  </div>
 
   <div class="projects-form-images">
     <%= render "images", f: f %>
