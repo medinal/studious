@@ -6,6 +6,9 @@
 ## ERD
 ![ERD](/ERD.png)
 
+## Wireframes
+![Wireframes](/wireframes.pdf)
+
 ## System dependencies
 - There really aren't any special system dependencies.
 
