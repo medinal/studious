@@ -14,7 +14,7 @@
 
 
 ## Database initialization
-* Running the seed file will delete all the data except for institutions and quotes.
+### IMPORTANT! Running the seed file will delete all the data except for institutions and quotes.
 - Rake tasks for institutions and quotes to seed those tables.
 - Once that is done, you probably want to set up a number of different users. Create a user using the registration then, in the rails console, change the role to superuser.
 - That user can access the rails-admin route from "/superuser", which will allow you to "register" institutions and to create student, processor, and admin users.
