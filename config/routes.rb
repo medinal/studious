@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resource :image
   end
 
-  match "*path", to: "application#redirect", via: :all
+  match "*path", to: "application#redirect", via: :all, as: "redirect"
 
 
 end
