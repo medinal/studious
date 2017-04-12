@@ -4,8 +4,7 @@
 - Students can submit portfolios through either a shared link or directly to registered institutions. The shared link can be viewed by anyone, while sharing directly with an institution gives the employees of that institution an interface to view and comment portfolios that are relevant only to themselves.
 
 ## ERD
-![ERD](github.com/medinal/studious/ERD.png)
-![ERD](medinal.github.com/studiously/erd.png)
+![ERD](/ERD.png)
 
 ## System dependencies
 - There really aren't any special system dependencies.
