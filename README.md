@@ -3,6 +3,9 @@
 - It is not meant to supplant the application process, but, rather, to supplement a student’s application.
 - Students can submit portfolios through either a shared link or directly to registered institutions. The shared link can be viewed by anyone, while sharing directly with an institution gives the employees of that institution an interface to view and comment portfolios that are relevant only to themselves.
 
+## ERD
+![ERD](github.com/medinal/studious/erd.pdf)
+
 ## System dependencies
 - There really aren't any special system dependencies.
 
