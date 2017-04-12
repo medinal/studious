@@ -3,6 +3,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :is_a_user
 
+  def redirect
+    if !current_user
+      redirect_to root_path
+    elsif current_user.student?
+      redirect_to student_path
+    elsif current_user.processor?
+      redirect_to processor_path
+    elsif current_user.admin?
+      redirect_to admins_path
+    elsif current_user.superuser?
+      redirect_to rails_admin_path
+    end
+  end
+
   private
 
   def set_quote
