@@ -1,12 +1,16 @@
 <div id="main" class="small-12 medium-10 columns">
   <h1>Your Portfolios</h1>
 
+  <%= form_tag(student_portfolios_path, :method => "get", enforce_utf8: false, id: "filter-form") do %>
+    <%= select_tag :filter, options_for_select({all: "all", draft: 0, submitted: 1, archived: 2}, @filter), id: "filter-select" %>
+  <% end %>
 
   <table class="text-center">
     <thead>
       <tr>
         <td class="text-center">View</td>
         <td class="text-center">Name</td>
+        <td class="text-center">Status</td>
         <td class="text-center">Created On</td>
         <td class="text-center">Last Updated</td>
         <td class="text-center">Share</td>
@@ -20,6 +24,7 @@
       <tr>
         <td><%= link_to "", student_portfolio_path(portfolio), method: "get", class: "fi-eye" %></td>
         <td><%= portfolio.title %></td>
+        <td><%= portfolio.status %></td>
         <td><%= portfolio.created_at.strftime('%m/%d/%y') %></td>
         <td><%= portfolio.updated_at.strftime('%m/%d/%y') %></td>
         <td><%= link_to "", share_path(portfolio), method: "get", class: "fi-link" %></td>
@@ -28,7 +33,7 @@
       </tr>
       <% end %>
       <tr>
-        <td colspan="7" class="text-center"><%= link_to 'New Portfolio', new_student_portfolio_path, method: "get", class: "button expanded"%></td>
+        <td colspan="8" class="text-center"><%= link_to 'New Portfolio', new_student_portfolio_path, method: "get", class: "button expanded"%></td>
       </tr>
     </tbody>
   </table>

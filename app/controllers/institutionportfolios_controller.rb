@@ -11,7 +11,12 @@ class InstitutionportfoliosController < ApplicationController
 
 
   def index
-    @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
+    if params[:filter] && params[:filter] != "all"
+      @portfolios = current_user.institutionportfolios.where(status: params[:filter]).paginate(page: params[:page], per_page: 7)
+      @filter = params[:filter]
+    else
+      @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
+    end
   end
 
 
@@ -30,6 +35,7 @@ class InstitutionportfoliosController < ApplicationController
     @institutionportfolio = Institutionportfolio.new(institutionportfolio_params)
     @institutionportfolio.portfolio = @portfolio
     if @institutionportfolio.save
+      @portfolio.submitted!
       redirect_to share_path(@portfolio), notice: 'Portfolio was successfully shared.'
     else
       render @portfolio
@@ -53,6 +59,9 @@ class InstitutionportfoliosController < ApplicationController
   def destroy
     @portfolio = @institutionportfolio.portfolio
     @institutionportfolio.destroy
+    if @portfolio.institutionportfolios.length == 0
+      @portfolio.draft!
+    end
     redirect_to share_path(@portfolio), notice: 'Portfolio has been retracted.'
   end
 

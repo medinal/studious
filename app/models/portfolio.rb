@@ -3,6 +3,8 @@ class Portfolio < ApplicationRecord
   extend FriendlyId
   friendly_id :identifier, use: :slugged
 
+  enum status: { "draft" => 0, "submitted" => 1, "archived" => 2 }
+
   belongs_to :user
   has_many :portfolioprojects, dependent: :destroy
   has_many :projects, through: :portfolioprojects

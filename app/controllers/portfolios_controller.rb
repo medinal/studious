@@ -6,7 +6,12 @@ class PortfoliosController < ApplicationController
 
 
     def index
-      @portfolios = current_user.portfolios.paginate(page: params[:page], per_page: 7)
+      if params[:filter] && params[:filter] != "all"
+        @portfolios = current_user.portfolios.where(status: params[:filter]).paginate(page: params[:page], per_page: 7)
+        @filter = params[:filter]
+      else
+        @portfolios = current_user.portfolios.paginate(page: params[:page], per_page: 7)
+      end
     end
 
 
