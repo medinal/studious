@@ -4,6 +4,4 @@ class Portfolioproject < ApplicationRecord
 
   accepts_nested_attributes_for :portfolio
 
-  validates :portfolio, :project, presence: true
-
 end
