@@ -44,11 +44,11 @@
           <% if project.video_url || project.link_url %>
             <div class="tabs-panel" id="<%= project.id %>panel4v">
               <h5>Other Links:</h5>
-              <% if project.video_url %>
+              <% if project.video_url.length > 0 %>
                 <h3>Video:</h3>
                 <blockquote><a href="<%= project.video_url %>">Here is a video of my project.</a></blockquote>
               <% end %>
-              <% if project.link_url %>
+              <% if project.link_url.length > 0 %>
                 <h3>Other:</h3>
                 <blockquote><a href="<%= project.link_url %>">Here is a link to my project.</a></blockquote>
               <% end %>
@@ -107,12 +107,12 @@
           <% if project.video_url || project.link_url %>
             <div class="tabs-panel" id="<%= project.id %><%= project.id %>panel4z">
               <h5>Other Links:</h5>
-              <% if project.video_url %>
+              <% if project.video_url.length > 0 %>
                 <h3>Video:</h3>
                 <blockquote><a href="<%= project.video_url %>">Here is a video of my project.</a></blockquote>
               <% end %>
-              <% if project.link_url %>
-                <h3>Video:</h3>
+              <% if project.link_url.length > 0 %>
+                <h3>Other:</h3>
                 <blockquote><a href="<%= project.link_url %>">Here is a link to my project.</a></blockquote>
               <% end %>
             </div>
