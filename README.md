@@ -1,5 +1,7 @@
-# README
-- Studious is a web application designed to allow students to create and maintain a portfolio of their accomplishments with the intent that when they apply to universities, internships, camps, jobs, or other institutions they can have a place where they can represent themselves and their projects in a more full-fledged and personal manner than an application. It is not meant to supplant the application process, but, rather, to supplement a student’s application. Students can submit portfolios through either a shared link or directly to registered institutions. The shared link can be viewed by anyone, while sharing directly with an institution gives the employees of that institution an interface to view and comment portfolios that are relevant only to themselves.
+# Studious
+- Studious is a web application designed to allow students to create and maintain a portfolio of their accomplishments with the intent that when they apply to universities, internships, camps, jobs, or other institutions they can have a place where they can represent themselves and their projects in a more full-fledged and personal manner than an application.
+- It is not meant to supplant the application process, but, rather, to supplement a student’s application.
+- Students can submit portfolios through either a shared link or directly to registered institutions. The shared link can be viewed by anyone, while sharing directly with an institution gives the employees of that institution an interface to view and comment portfolios that are relevant only to themselves.
 
 ## System dependencies
 - There really aren't any special system dependencies.
