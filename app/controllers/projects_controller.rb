@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
 
     def index
       @projects = current_user.projects
+      @projects = current_user.projects.paginate(page: params[:page], per_page: 7)
     end
 
 
