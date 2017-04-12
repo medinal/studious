@@ -1,6 +1,10 @@
 <div id="main" class="small-12 columns">
   <h1><%= current_user.institution.name %>'s Employees</h1>
 
+  <%= form_tag(admins_path, :method => "get", enforce_utf8: false, id: "search-form") do %>
+    <%= select_tag :filter, options_for_select({processor: 1, admin: 2}) %>
+    <%= submit_tag "Filter", :name => nil %>
+  <% end %>
 
   <table class="text-center">
     <thead>

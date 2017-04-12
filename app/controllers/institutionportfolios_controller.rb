@@ -11,7 +11,11 @@ class InstitutionportfoliosController < ApplicationController
 
 
   def index
-    @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
+    if params[:filter]
+      @portfolios = current_user.institutionportfolios.where(status: params[:filter]).paginate(page: params[:page], per_page: 7)
+    else
+      @portfolios = current_user.institutionportfolios.paginate(page: params[:page], per_page: 7)
+    end
   end
 
 
