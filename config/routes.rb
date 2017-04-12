@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   #Public Routes
   root to: "home#index"
-  resources :portfolios, param: :portfolio_id, only: [:show]
+  get "portfolios/:portfolio_id", to: "portfolios#showpublic"
 
   #Student Routes
   resource :student, only: [:show] do

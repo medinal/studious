@@ -1,8 +1,8 @@
 class PortfoliosController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show]
-  before_action :is_a_student, except: [:show]
-  before_action :set_portfolio, only: [:show, :edit, :update, :destroy, :share, :submit]
+  before_action :authenticate_user!, except: [:showpublic]
+  before_action :is_a_student, except: [:showpublic]
+  before_action :set_portfolio, only: [:show, :showpublic, :edit, :update, :destroy, :share, :submit]
 
 
     def index
@@ -16,6 +16,9 @@ class PortfoliosController < ApplicationController
 
 
     def show
+    end
+
+    def showpublic
     end
 
 
