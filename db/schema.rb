@@ -68,13 +68,13 @@ ActiveRecord::Schema.define(version: 20170412032425) do
 
   create_table "portfolios", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "identifier"
     t.string   "slug"
     t.string   "title"
     t.text     "welcome_message"
-    t.integer  "status"
+    t.integer  "status",          default: 0
     t.index ["slug"], name: "index_portfolios_on_slug", unique: true, using: :btree
     t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
   end
