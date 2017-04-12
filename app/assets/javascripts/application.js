@@ -35,4 +35,8 @@ $(document).ready(function () {
      $('#filter-form').submit();
    });
 
+   $("#institution").on('change', function(){
+     $('#share-button').attr("disabled", false);
+   });
+
 });
