@@ -1,4 +1,5 @@
 # Studious
+[Studious](https://studious-profiles.herokuapp.com)
 - Studious is a web application designed to allow students to create and maintain a portfolio of their accomplishments with the intent that when they apply to universities, internships, camps, jobs, or other institutions they can have a place where they can represent themselves and their projects in a more full-fledged and personal manner than an application.
 - It is not meant to supplant the application process, but, rather, to supplement a student’s application.
 - Students can submit portfolios through either a shared link or directly to registered institutions. The shared link can be viewed by anyone, while sharing directly with an institution gives the employees of that institution an interface to view and comment portfolios that are relevant only to themselves.
@@ -8,6 +9,10 @@
 
 ## Wireframes
 [Wireframes](/wireframes.pdf)
+
+## Userstories
+[User Stories](https://docs.google.com/document/d/1VfxSAmwJSPIiKyXjetnNPo4H5hS5vZj4p-BhtDLMWs0/edit?usp=sharing)
+
 
 ## System dependencies
 - There really aren't any special system dependencies.
@@ -29,7 +34,11 @@
 
 
 ## Configuration
-- There really isn't anything tricky to configure. In order for images to work you have to get an api key from cloudinary and save it into a .env file.
+- This programs has a lot of gem dependencies. Some of the more important ones to know how to use before messing around with it are: Devise, Foundation,
+
+
+## Technologies
+- HTML, Foundation, Ruby, Rails, Jquery, Jquery-ui, Jquery-Autocomplete, Devise, Will-Paginate, Rails_admin, and ClipboardJS.
 
 
 ## Deployment of a local server
@@ -40,6 +49,9 @@
 ## Testing
 - There are some tests for models, but other than that I haven't gotten around to it yet. The test environment is
 using rspec-rails and factory girl.
+
+## Future Developments
+- I'd really like to implement a system whereby students can take a snapshot of their profile at the time of portfolio creation, that way their profile is always aligned with where the students were at when they submitted it.
 
 
 ### Ruby version
