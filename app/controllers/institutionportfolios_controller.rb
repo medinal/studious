@@ -34,6 +34,7 @@ class InstitutionportfoliosController < ApplicationController
     @institutionportfolio = Institutionportfolio.new(institutionportfolio_params)
     @institutionportfolio.portfolio = @portfolio
     if @institutionportfolio.save
+      @portfolio.submitted!
       redirect_to share_path(@portfolio), notice: 'Portfolio was successfully shared.'
     else
       render @portfolio
@@ -57,6 +58,9 @@ class InstitutionportfoliosController < ApplicationController
   def destroy
     @portfolio = @institutionportfolio.portfolio
     @institutionportfolio.destroy
+    if @portfolio.institutionportfolios.length == 0
+      @portfolio.draft!
+    end
     redirect_to share_path(@portfolio), notice: 'Portfolio has been retracted.'
   end
 
