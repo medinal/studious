@@ -28,7 +28,7 @@
 - Spin up a local puma server, use `rails server`. This is set up on localhost:3000.
 
 
-## testing
+## Testing
 - There are some tests for models, but other than that I haven't gotten around to it yet. The test environment is
 using rspec-rails and factory girl.
 
