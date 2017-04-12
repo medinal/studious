@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
       @image = @imageable.build_image(image_params)
     end
     if @image.save
-      redirect_to student_path, notice: "Image was successfully added."
+      redirect, notice: 'Image was successfully saved.'
     else
       render :new
     end
@@ -30,7 +30,7 @@ class ImagesController < ApplicationController
 
   def update
     if @image.update(image_params)
-      redirect_to student_path, notice: 'Image was successfully updated.'
+      redirect, notice: 'Image was successfully updated.'
     else
       render :edit
     end
@@ -39,7 +39,7 @@ class ImagesController < ApplicationController
 
   def destroy
     @image.destroy
-    redirect_to student_path, notice: 'Image was successfully removed.'
+    redirect, notice: 'Image was successfully removed.'
   end
 
   private
