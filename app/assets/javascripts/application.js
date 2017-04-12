@@ -31,4 +31,8 @@ $(document).ready(function () {
 
    var clipboard = new Clipboard('.clipboard-btn');
 
+   $('#filter-select').on('change', function(){
+     $('#filter-form').submit();
+   });
+
 });
